@@ -26,8 +26,6 @@ import wx
 winmm = ctypes.windll.winmm
 
 confspec = {
-	"nvdaVolume" : "integer( default=100, min=0, max=100)",
-	"appsVolume" : "integer( default=100, min=0, max=100)",
 	"soundSplitLeft" : "boolean( default=False)",
 	"soundSplit" : "boolean( default=False)",
 }
@@ -44,26 +42,6 @@ class SettingsDialog(SettingsPanel):
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 
-	  # NVDA volume slider
-		sizer=wx.BoxSizer(wx.HORIZONTAL)
-		# Translators: slider to select NVDA  volume
-		label=wx.StaticText(self,wx.ID_ANY,label=_("NVDA volume"))
-		slider=wx.Slider(self, wx.NewId(), minValue=0,maxValue=100)
-		slider.SetValue(config.conf["soundSplitter"]["nvdaVolume"])
-		sizer.Add(label)
-		sizer.Add(slider)
-		settingsSizer.Add(sizer)
-		self.nvdaVolumeSlider = slider
-	  # Apps  volume slider
-		sizer=wx.BoxSizer(wx.HORIZONTAL)
-		# Translators: slider to select Apps   volume
-		label=wx.StaticText(self,wx.ID_ANY,label=_("Applications volume"))
-		slider=wx.Slider(self, wx.NewId(), minValue=0,maxValue=100)
-		slider.SetValue(config.conf["soundSplitter"]["appsVolume"])
-		sizer.Add(label)
-		sizer.Add(slider)
-		settingsSizer.Add(sizer)
-		self.appsVolumeSlider = slider
 	  # checkbox Enable sound split
 		# Translators: Checkbox for sound split
 		label = _("Split NVDA sound and applications' sounds into left and right channels.")
@@ -77,8 +55,6 @@ class SettingsDialog(SettingsPanel):
 
 	def onSave(self):
 
-		config.conf["soundSplitter"]["nvdaVolume"] = self.nvdaVolumeSlider.Value
-		config.conf["soundSplitter"]["appsVolume"] = self.appsVolumeSlider.Value
 		config.conf["soundSplitter"]["soundSplit"] = self.soundSplitCheckbox.Value
 		config.conf["soundSplitter"]["soundSplitLeft"] = self.soundSplitLeftCheckbox.Value
 		updateSoundSplitterMonitorThread()
@@ -89,7 +65,7 @@ originalWaveOpen = None
 def preWaveOpen(selfself, *args, **kwargs):
 	global originalWaveOpen
 	result = originalWaveOpen(selfself, *args, **kwargs)
-	volume = config.conf["soundSplitter"]["nvdaVolume"]
+	volume = 100
 	volume2 = int(0xFFFF * (volume / 100))
 	if not config.conf["soundSplitter"]["soundSplit"]:
 		volume2 = volume2 | (volume2 << 16)
@@ -106,7 +82,7 @@ def setAppsVolume(volumes=None):
 	if volumes is not None:
 		leftVolume, rightVolume = volumes
 	else:
-		volume = config.conf["soundSplitter"]["appsVolume"]
+		volume = 100
 		if config.conf["soundSplitter"]["soundSplit"]:
 			if config.conf["soundSplitter"]["soundSplitLeft"]:
 				leftVolume = 0
