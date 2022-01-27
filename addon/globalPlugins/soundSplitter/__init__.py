@@ -6,16 +6,20 @@
 #This file is covered by the GNU General Public License.
 #See the file LICENSE for more details.
 
+# Joseph Lee: completely rewritten to make it compliant with NVDA Core expectations
+# and to align with many other add-ons.
+# This is evident in config access and the ability to handle config profile switches.
+
+import globalPluginHandler
+import ctypes
+import types
 import addonHandler
 import config
 import core
-import ctypes
-import globalPluginHandler
 import gui
 from gui.settingsDialogs import SettingsPanel
 import nvwave
 from scriptHandler import script
-import types
 import ui
 import wx
 
