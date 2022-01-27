@@ -42,19 +42,18 @@ class SettingsDialog(SettingsPanel):
 	def makeSettings(self, settingsSizer):
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
 
-	  # checkbox Enable sound split
+		# checkbox Enable sound split
 		# Translators: Checkbox for sound split
-		label = _("Split NVDA sound and applications' sounds into left and right channels.")
+		label = _("&Split NVDA sound and applications' sounds into left and right channels")
 		self.soundSplitCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
 		self.soundSplitCheckbox.Value = config.conf["soundSplitter"]["soundSplit"]
-	  # checkbox switch left and rright during sound split
+		# checkbox switch left and rright during sound split
 		# Translators: Checkbox for switching left and right sound split
-		label = _("Switch left and right during sound split.")
+		label = _("Switch &left and right during sound split")
 		self.soundSplitLeftCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
 		self.soundSplitLeftCheckbox.Value = config.conf["soundSplitter"]["soundSplitLeft"]
 
 	def onSave(self):
-
 		config.conf["soundSplitter"]["soundSplit"] = self.soundSplitCheckbox.Value
 		config.conf["soundSplitter"]["soundSplitLeft"] = self.soundSplitLeftCheckbox.Value
 		updateSoundSplitterMonitorThread()
@@ -65,6 +64,7 @@ originalWaveOpen = None
 def preWaveOpen(selfself, *args, **kwargs):
 	global originalWaveOpen
 	result = originalWaveOpen(selfself, *args, **kwargs)
+	# All we care about is splitting sounds, so set volume to 100 percent always.
 	volume = 100
 	volume2 = int(0xFFFF * (volume / 100))
 	if not config.conf["soundSplitter"]["soundSplit"]:
