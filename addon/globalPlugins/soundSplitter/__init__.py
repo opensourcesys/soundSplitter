@@ -114,7 +114,7 @@ ru:[а-яА-Я]
 zh_CN:[⺀-⺙⺛-⻳⼀-⿕々〇〡-〩〸-〺〻㐀-䶵一-鿃豈-鶴侮-頻並-龎]
 '''.strip()
 
-module = "tonysEnhancements"
+module = "soundSplitter"
 def initConfiguration():
     confspec = {
         "blockDoubleInsert" : "boolean( default=False)",
@@ -283,7 +283,7 @@ class MultilineEditTextDialog(wx.Dialog):
 
 class SettingsDialog(SettingsPanel):
     # Translators: Title for the settings dialog
-    title = _("Tony's enhancements  settings")
+    title = _("Sound Splitter")
 
     def makeSettings(self, settingsSizer):
         self.dynamicKeystrokesTable = getConfig("dynamicKeystrokesTable")
@@ -1250,7 +1250,7 @@ updateSoundSplitterMonitorThread()
 updateScrollLockBlocking()
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-    scriptCategory = _("Tony's Enhancements")
+    scriptCategory = _("Sound Splitter")
 
     def __init__(self, *args, **kwargs):
         super(GlobalPlugin, self).__init__(*args, **kwargs)
@@ -1290,7 +1290,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
         for i in [1,2,3]:
             configKey = f"quickSearch{i}"
             script = lambda selfself, gesture, configKey=configKey: self.script_quickSearch(selfself, gesture, getConfig(configKey))
-            script.category = "Tony's Enhancements"
+            script.category = "Sound Splitter"
             script.__name__ = _("QuickSearch") + str(i)
             script.__doc__ = _("Performs QuickSearch back or forward in editables according to quickSearch{i} regexp").format(**locals())
             setattr(editableText.EditableText, f"script_quickSearch{i}", script)
