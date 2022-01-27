@@ -156,12 +156,16 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
 		self.createMenu()
+		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
+		config.post_configReset.register(self.reload)
 		self.injectHooks()
 
 	def createMenu(self):
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 
 	def terminate(self):
+		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
+		config.post_configReset.unregister(self.reload)
 		updateSoundSplitterMonitorThread(exit=True)
 		self.removeHooks()
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SettingsDialog)
@@ -174,6 +178,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def  removeHooks(self):
 		global originalWaveOpen
 		nvwave.WavePlayer.open = originalWaveOpen
+
+	def handleConfigProfileSwitch(self):
+		updateSoundSplitterMonitorThread()
+
+	def reload(self, factoryDefaults=False):
+		updateSoundSplitterMonitorThread()
 
 	@script(description='Toggle sound split.', gestures=['kb:NVDA+Alt+S'])
 	def script_toggleSoundSplit(self, gesture):
