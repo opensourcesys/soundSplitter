@@ -7,53 +7,16 @@
 #See the file LICENSE for more details.
 
 import addonHandler
-import api
-import bisect
-import collections
 import config
-import controlTypes
 import core
-import copy
 import ctypes
-from ctypes import create_string_buffer, byref
-import documentBase
-import editableText
 import globalPluginHandler
 import gui
-from gui import guiHelper, nvdaControls
 from gui.settingsDialogs import SettingsPanel
-import html
-import inputCore
-import itertools
-import json
-import keyboardHandler
-import locationHelper
-from logHandler import log
-import math
-import mouseHandler
-import NVDAHelper
-from NVDAObjects import behaviors, NVDAObject
-from NVDAObjects.IAccessible import IAccessible
-from NVDAObjects.UIA import UIA
-from NVDAObjects.window import winword
 import nvwave
-import operator
-import os
-import re
-from scriptHandler import script, willSayAllResume
-import speech
-from speech.priorities import SpeechPriority
-import string
-import struct
-import textInfos
-import threading
-import time
-import tones
+from scriptHandler import script
 import types
 import ui
-import watchdog
-import wave
-import winUser
 import wx
 
 winmm = ctypes.windll.winmm
@@ -146,7 +109,7 @@ def preWaveOpen(selfself, *args, **kwargs):
     return result
 
 def setAppsVolume(volumes=None):
-    from . pycaw.pycaw import AudioUtilities, IAudioEndpointVolume, IChannelAudioVolume
+    from . pycaw.pycaw import AudioUtilities, IChannelAudioVolume
     if volumes is not None:
         leftVolume, rightVolume = volumes
     else:
