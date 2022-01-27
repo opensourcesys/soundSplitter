@@ -25,26 +25,15 @@ import wx
 
 winmm = ctypes.windll.winmm
 
-module = "soundSplitter"
-def initConfiguration():
-	confspec = {
-		"nvdaVolume" : "integer( default=100, min=0, max=100)",
-		"appsVolume" : "integer( default=100, min=0, max=100)",
-		"soundSplitLeft" : "boolean( default=False)",
-		"soundSplit" : "boolean( default=False)",
-	}
-	config.conf.spec[module] = confspec
-
-def getConfig(key):
-	value = config.conf[module][key]
-	return value
-def setConfig(key, value):
-	config.conf[module][key] = value
-
-
+confspec = {
+	"nvdaVolume" : "integer( default=100, min=0, max=100)",
+	"appsVolume" : "integer( default=100, min=0, max=100)",
+	"soundSplitLeft" : "boolean( default=False)",
+	"soundSplit" : "boolean( default=False)",
+}
+config.conf.spec["soundSplitter"] = confspec
 
 addonHandler.initTranslation()
-initConfiguration()
 
 
 
@@ -60,7 +49,7 @@ class SettingsDialog(SettingsPanel):
 		# Translators: slider to select NVDA  volume
 		label=wx.StaticText(self,wx.ID_ANY,label=_("NVDA volume"))
 		slider=wx.Slider(self, wx.NewId(), minValue=0,maxValue=100)
-		slider.SetValue(getConfig("nvdaVolume"))
+		slider.SetValue(config.conf["soundSplitter"]["nvdaVolume"])
 		sizer.Add(label)
 		sizer.Add(slider)
 		settingsSizer.Add(sizer)
@@ -70,7 +59,7 @@ class SettingsDialog(SettingsPanel):
 		# Translators: slider to select Apps   volume
 		label=wx.StaticText(self,wx.ID_ANY,label=_("Applications volume"))
 		slider=wx.Slider(self, wx.NewId(), minValue=0,maxValue=100)
-		slider.SetValue(getConfig("appsVolume"))
+		slider.SetValue(config.conf["soundSplitter"]["appsVolume"])
 		sizer.Add(label)
 		sizer.Add(slider)
 		settingsSizer.Add(sizer)
@@ -79,19 +68,19 @@ class SettingsDialog(SettingsPanel):
 		# Translators: Checkbox for sound split
 		label = _("Split NVDA sound and applications' sounds into left and right channels.")
 		self.soundSplitCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
-		self.soundSplitCheckbox.Value = getConfig("soundSplit")
+		self.soundSplitCheckbox.Value = config.conf["soundSplitter"]["soundSplit"]
 	  # checkbox switch left and rright during sound split
 		# Translators: Checkbox for switching left and right sound split
 		label = _("Switch left and right during sound split.")
 		self.soundSplitLeftCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
-		self.soundSplitLeftCheckbox.Value = getConfig("soundSplitLeft")
+		self.soundSplitLeftCheckbox.Value = config.conf["soundSplitter"]["soundSplitLeft"]
 
 	def onSave(self):
 
-		setConfig("nvdaVolume", self.nvdaVolumeSlider.Value)
-		setConfig("appsVolume", self.appsVolumeSlider.Value)
-		setConfig("soundSplit", self.soundSplitCheckbox.Value)
-		setConfig("soundSplitLeft", self.soundSplitLeftCheckbox.Value)
+		config.conf["soundSplitter"]["nvdaVolume"] = self.nvdaVolumeSlider.Value
+		config.conf["soundSplitter"]["appsVolume"] = self.appsVolumeSlider.Value
+		config.conf["soundSplitter"]["soundSplit"] = self.soundSplitCheckbox.Value
+		config.conf["soundSplitter"]["soundSplitLeft"] = self.soundSplitLeftCheckbox.Value
 		updateSoundSplitterMonitorThread()
 
 
@@ -100,12 +89,12 @@ originalWaveOpen = None
 def preWaveOpen(selfself, *args, **kwargs):
 	global originalWaveOpen
 	result = originalWaveOpen(selfself, *args, **kwargs)
-	volume = getConfig("nvdaVolume")
+	volume = config.conf["soundSplitter"]["nvdaVolume"]
 	volume2 = int(0xFFFF * (volume / 100))
-	if not getConfig("soundSplit"):
+	if not config.conf["soundSplitter"]["soundSplit"]:
 		volume2 = volume2 | (volume2 << 16)
 	else:
-		if getConfig("soundSplitLeft"):
+		if config.conf["soundSplitter"]["soundSplitLeft"]:
 			pass
 		else:
 			volume2 = (volume2 << 16)
@@ -117,9 +106,9 @@ def setAppsVolume(volumes=None):
 	if volumes is not None:
 		leftVolume, rightVolume = volumes
 	else:
-		volume = getConfig("appsVolume")
-		if getConfig("soundSplit"):
-			if getConfig("soundSplitLeft"):
+		volume = config.conf["soundSplitter"]["appsVolume"]
+		if config.conf["soundSplitter"]["soundSplit"]:
+			if config.conf["soundSplitter"]["soundSplitLeft"]:
 				leftVolume = 0
 				rightVolume = volume
 			else:
@@ -144,7 +133,7 @@ soundSplitterMonitorCounter = 0
 def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 	global soundSplitterMonitorCounter
 	while localSoundSplitterMonitorCounter == soundSplitterMonitorCounter:
-		if not getConfig("soundSplit"):
+		if not config.conf["soundSplitter"]["soundSplit"]:
 			return
 		setAppsVolume()
 		#time.sleep(1)
@@ -156,7 +145,7 @@ def updateSoundSplitterMonitorThread(exit=False):
 	if exit:
 		setAppsVolume((100,100))
 		return
-	ss = getConfig("soundSplit")
+	ss = config.conf["soundSplitter"]["soundSplit"]
 	if ss:
 		executeAsynchronously(soundSplitterMonitorThread(soundSplitterMonitorCounter))
 	else:
@@ -212,12 +201,12 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	@script(description='Toggle sound split.', gestures=['kb:NVDA+Alt+S'])
 	def script_toggleSoundSplit(self, gesture):
-		ss = getConfig("soundSplit")
+		ss = config.conf["soundSplitter"]["soundSplit"]
 		ss = not ss
 		msg = _("Sound split enabled") if ss else _("Sound split disabled")
-		setConfig("soundSplit", False)
+		config.conf["soundSplitter"]["soundSplit"] = False
 		def updateSoundSplit():
-			setConfig("soundSplit", ss)
+			config.conf["soundSplitter"]["soundSplit"] = ss
 			updateSoundSplitterMonitorThread()
 		#core.callLater(100, updateSoundSplit)
 		updateSoundSplit()
