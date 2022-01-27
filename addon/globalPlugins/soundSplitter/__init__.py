@@ -155,26 +155,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
+		global originalWaveOpen
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
 		config.post_configReset.register(self.reload)
-		self.injectHooks()
-
-	def terminate(self):
-		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
-		config.post_configReset.unregister(self.reload)
-		updateSoundSplitterMonitorThread(exit=True)
-		self.removeHooks()
-		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SettingsDialog)
-
-	def injectHooks(self):
-		global originalWaveOpen
 		originalWaveOpen = nvwave.WavePlayer.open
 		nvwave.WavePlayer.open = preWaveOpen
 
-	def  removeHooks(self):
+	def terminate(self):
 		global originalWaveOpen
+		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
+		config.post_configReset.unregister(self.reload)
+		updateSoundSplitterMonitorThread(exit=True)
 		nvwave.WavePlayer.open = originalWaveOpen
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SettingsDialog)
 
 	def handleConfigProfileSwitch(self):
 		updateSoundSplitterMonitorThread()
@@ -187,10 +181,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		ss = config.conf["soundSplitter"]["soundSplit"]
 		ss = not ss
 		msg = _("Sound split enabled") if ss else _("Sound split disabled")
-		config.conf["soundSplitter"]["soundSplit"] = False
-		def updateSoundSplit():
-			config.conf["soundSplitter"]["soundSplit"] = ss
-			updateSoundSplitterMonitorThread()
-		#core.callLater(100, updateSoundSplit)
-		updateSoundSplit()
+		config.conf["soundSplitter"]["soundSplit"] = ss
+		updateSoundSplitterMonitorThread()
 		ui.message(msg)
