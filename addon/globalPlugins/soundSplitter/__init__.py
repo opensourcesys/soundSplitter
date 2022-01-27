@@ -155,13 +155,10 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
-		self.createMenu()
+		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
 		config.post_configReset.register(self.reload)
 		self.injectHooks()
-
-	def createMenu(self):
-		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 
 	def terminate(self):
 		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
