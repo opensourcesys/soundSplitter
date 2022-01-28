@@ -25,6 +25,7 @@ import wx
 
 winmm = ctypes.windll.winmm
 
+# Sound Splitter config variables and settings UI.
 confspec = {
 	"soundSplitLeft": "boolean( default=False)",
 	"soundSplit": "boolean( default=False)",
@@ -58,6 +59,7 @@ class SettingsDialog(SettingsPanel):
 		updateSoundSplitterMonitorThread()
 
 
+# Sound Splitter mechanics and internal functions.
 originalWaveOpen = None
 
 
