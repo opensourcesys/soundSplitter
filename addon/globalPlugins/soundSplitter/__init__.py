@@ -138,7 +138,6 @@ def executeAsynchronously(gen):
 	"""
 	This function executes a generator-function in such a manner, that allows updates
 	from the operating system to be processed during execution.
-	For an example of such generator function, please see GlobalPlugin.script_editJupyter.
 	Specifically, every time the generator function yilds a positive number,,
 	the rest of the generator function will be executed from within wx.CallLater() call.
 	If generator function yields a value of 0, then the rest of the generator function
