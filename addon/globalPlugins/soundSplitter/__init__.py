@@ -26,8 +26,8 @@ import wx
 winmm = ctypes.windll.winmm
 
 confspec = {
-	"soundSplitLeft" : "boolean( default=False)",
-	"soundSplit" : "boolean( default=False)",
+	"soundSplitLeft": "boolean( default=False)",
+	"soundSplit": "boolean( default=False)",
 }
 config.conf.spec["soundSplitter"] = confspec
 
@@ -119,7 +119,7 @@ def updateSoundSplitterMonitorThread(exit=False):
 	global soundSplitterMonitorCounter
 	soundSplitterMonitorCounter += 1
 	if exit:
-		setAppsVolume((100,100))
+		setAppsVolume((100, 100))
 		return
 	ss = config.conf["soundSplitter"]["soundSplit"]
 	if ss:
