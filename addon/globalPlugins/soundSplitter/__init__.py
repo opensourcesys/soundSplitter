@@ -3,8 +3,8 @@
 # Originally part of Tony's Enhancements add-on
 # Sound Splitter copyright 2022 Joseph Lee
 # Tony's Enhancements copyright (C) 2019 Tony Malykh
-#This file is covered by the GNU General Public License.
-#See the file LICENSE for more details.
+# This file is covered by the GNU General Public License.
+# See the file LICENSE for more details.
 
 # Joseph Lee: completely rewritten to make it compliant with NVDA Core expectations
 # and to align with many other add-ons.
@@ -112,7 +112,6 @@ def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 		if not config.conf["soundSplitter"]["soundSplit"]:
 			return
 		setAppsVolume()
-		#time.sleep(1)
 		yield 1000
 
 def updateSoundSplitterMonitorThread(exit=False):
