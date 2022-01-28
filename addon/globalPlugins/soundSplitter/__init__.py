@@ -34,7 +34,6 @@ config.conf.spec["soundSplitter"] = confspec
 addonHandler.initTranslation()
 
 
-
 class SettingsDialog(SettingsPanel):
 	# Translators: Title for the settings dialog
 	title = _("Sound Splitter")
@@ -61,6 +60,7 @@ class SettingsDialog(SettingsPanel):
 
 originalWaveOpen = None
 
+
 def preWaveOpen(selfself, *args, **kwargs):
 	global originalWaveOpen
 	result = originalWaveOpen(selfself, *args, **kwargs)
@@ -76,6 +76,7 @@ def preWaveOpen(selfself, *args, **kwargs):
 			volume2 = (volume2 << 16)
 	winmm.waveOutSetVolume(selfself._waveout, volume2)
 	return result
+
 
 def setAppsVolume(volumes=None):
 	from . pycaw.pycaw import AudioUtilities, IChannelAudioVolume
@@ -105,7 +106,10 @@ def setAppsVolume(volumes=None):
 			channelVolume.SetChannelVolume(0, leftVolume, None)
 			channelVolume.SetChannelVolume(1, rightVolume, None)
 
+
 soundSplitterMonitorCounter = 0
+
+
 def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 	global soundSplitterMonitorCounter
 	while localSoundSplitterMonitorCounter == soundSplitterMonitorCounter:
@@ -113,6 +117,7 @@ def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 			return
 		setAppsVolume()
 		yield 1000
+
 
 def updateSoundSplitterMonitorThread(exit=False):
 	global soundSplitterMonitorCounter
@@ -125,6 +130,7 @@ def updateSoundSplitterMonitorThread(exit=False):
 		executeAsynchronously(soundSplitterMonitorThread(soundSplitterMonitorCounter))
 	else:
 		setAppsVolume()
+
 
 def executeAsynchronously(gen):
 	"""
@@ -149,7 +155,9 @@ def executeAsynchronously(gen):
 
 updateSoundSplitterMonitorThread()
 
+
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
+
 	scriptCategory = _("Sound Splitter")
 
 	def __init__(self, *args, **kwargs):
