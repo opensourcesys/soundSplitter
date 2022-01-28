@@ -134,14 +134,17 @@ def updateSoundSplitterMonitorThread(exit=False):
 
 def executeAsynchronously(gen):
 	"""
-	This function executes a generator-function in such a manner, that allows updates from the operating system to be processed during execution.
+	This function executes a generator-function in such a manner, that allows updates
+	from the operating system to be processed during execution.
 	For an example of such generator function, please see GlobalPlugin.script_editJupyter.
-	Specifically, every time the generator function yilds a positive number,, the rest of the generator function will be executed
-	from within wx.CallLater() call.
+	Specifically, every time the generator function yilds a positive number,,
+	the rest of the generator function will be executed from within wx.CallLater() call.
 	If generator function yields a value of 0, then the rest of the generator function
 	will be executed from within wx.CallAfter() call.
-	This allows clear and simple expression of the logic inside the generator function, while still allowing NVDA to process update events from the operating system.
-	Essentially the generator function will be paused every time it calls yield, then the updates will be processed by NVDA and then the remainder of generator function will continue executing.
+	This allows clear and simple expression of the logic inside the generator function,
+	while still allowing NVDA to process update events from the operating system.
+	Essentially the generator function will be paused every time it calls yield, then the updates will be
+	processed by NVDA and then the remainder of generator function will continue executing.
 	"""
 	if not isinstance(gen, types.GeneratorType):
 		raise Exception("Generator function required")
@@ -149,7 +152,8 @@ def executeAsynchronously(gen):
 		value = gen.__next__()
 	except StopIteration:
 		return
-	l = lambda gen=gen: executeAsynchronously(gen)
+	# The below line may require a rewrite as multiple Flake8/lint errors are raised.
+	l = lambda gen=gen: executeAsynchronously(gen)  # NOQA
 	core.callLater(value, executeAsynchronously, gen)
 
 
