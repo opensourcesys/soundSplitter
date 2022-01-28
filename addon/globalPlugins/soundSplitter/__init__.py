@@ -188,11 +188,19 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def reload(self, factoryDefaults=False):
 		updateSoundSplitterMonitorThread()
 
-	@script(description='Toggle sound split.', gestures=['kb:NVDA+Alt+S'])
+	@script(
+		# Translators: input help message for toggle sound splitter command.
+		description=_("Toggle sound split"),
+		gesture="kb:NVDA+Alt+S"
+	)
 	def script_toggleSoundSplit(self, gesture):
-		ss = config.conf["soundSplitter"]["soundSplit"]
-		ss = not ss
-		msg = _("Sound split enabled") if ss else _("Sound split disabled")
-		config.conf["soundSplitter"]["soundSplit"] = ss
+		if config.conf["soundSplitter"]["soundSplit"]:
+			# Translators: presented when toggling sound splitter.
+			msg = _("Sound split disabled")
+			config.conf["soundSplitter"]["soundSplit"] = False
+		else:
+			# Translators: presented when toggling sound splitter.
+			msg = _("Sound split enabled")
+			config.conf["soundSplitter"]["soundSplit"] = True
 		updateSoundSplitterMonitorThread()
 		ui.message(msg)
