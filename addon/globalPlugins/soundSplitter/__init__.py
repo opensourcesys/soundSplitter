@@ -80,7 +80,7 @@ def preWaveOpen(selfself, *args, **kwargs):
 	return result
 
 
-def setAppsVolume(volumes=None):
+def setAppsVolume(volumes=None, exit=False):
 	from . pycaw.pycaw import AudioUtilities, IChannelAudioVolume
 	if volumes is not None:
 		leftVolume, rightVolume = volumes
@@ -100,8 +100,9 @@ def setAppsVolume(volumes=None):
 	rightVolume /= 100.0
 
 	audioSessions = AudioUtilities.GetAllSessions()
+	import os
 	for s in audioSessions:
-		if s.Process is not None and 'nvda' in s.Process.name().lower():
+		if not exit and s.Process is not None and s.ProcessId == os.getpid():
 			continue
 		channelVolume = s._ctl.QueryInterface(IChannelAudioVolume)
 		if channelVolume.GetChannelCount() == 2:
@@ -125,7 +126,7 @@ def updateSoundSplitterMonitorThread(exit=False):
 	global soundSplitterMonitorCounter
 	soundSplitterMonitorCounter += 1
 	if exit:
-		setAppsVolume((100, 100))
+		setAppsVolume((100, 100), exit=True)
 		return
 	ss = config.conf["soundSplitter"]["soundSplit"]
 	if ss:
