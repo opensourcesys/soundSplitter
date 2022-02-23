@@ -195,13 +195,23 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture="kb:NVDA+Alt+S"
 	)
 	def script_toggleSoundSplit(self, gesture):
-		if config.conf["soundSplitter"]["soundSplit"]:
+		soundSplit = config.conf["soundSplitter"]["soundSplit"]
+		soundSplitLeft = config.conf["soundSplitter"]["soundSplitLeft"]
+		if not soundSplit:
+			soundSplit = True
+			soundSplitLeft = False
+			# Translators: presented when toggling sound splitter.
+			msg = _("Sound split enabled, NVDA on the right")
+		elif soundSplit and not soundSplitLeft:
+			soundSplitLeft = True
+			# Translators: presented when toggling sound splitter.
+			msg = _("Sound split enabled, NVDA on the left")
+		elif soundSplit and soundSplitLeft:
+			soundSplit = False
+			soundSplitLeft = False
 			# Translators: presented when toggling sound splitter.
 			msg = _("Sound split disabled")
-			config.conf["soundSplitter"]["soundSplit"] = False
-		else:
-			# Translators: presented when toggling sound splitter.
-			msg = _("Sound split enabled")
-			config.conf["soundSplitter"]["soundSplit"] = True
+		config.conf["soundSplitter"]["soundSplit"] = soundSplit
+		config.conf["soundSplitter"]["soundSplitLeft"] = soundSplitLeft
 		updateSoundSplitterMonitorThread()
 		ui.message(msg)
