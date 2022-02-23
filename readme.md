@@ -9,7 +9,7 @@ This add-on, partly based on Tony's Enhancements by Tony Malykh, adds the abilit
 
 ## Commands:
 
-* Alt+NvDA+S: toggle sound splitter. If enabled, NVDA will be heard through the right channel.
+* Alt+NvDA+S: toggle sound splitter between enabled with NVDA on the right channel, NVDA on the left channel, or disabled.
 
 ## Sound Splitter settings
 
