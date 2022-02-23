@@ -20,6 +20,7 @@ You can configure add-on settings from NVDA menu/Preferences/Settings/Sound Spli
 
 ## Version 22.03
 
+* Updated psutil dependency to 5.9.0.
 * Changed sound splitter toggle command (Alt+NVDA+S) to toggle between NVDA on the right channel, on the left channel, or sound splitter disabled.
 
 ## Version 22.02.1
