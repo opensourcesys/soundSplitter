@@ -2,7 +2,7 @@
 
 * Authors: Joseph Lee and contributors
 * Download [stable version][1]
-* NVDA compatibility: 2019.3 and later
+* NVDA compatibility: 2021.3 and later
 
 This add-on, partly based on Tony's Enhancements by Tony Malykh, adds the ability to split audio from NVDA and other sounds onto separate audio channels.
 
