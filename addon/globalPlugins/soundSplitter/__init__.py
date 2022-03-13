@@ -124,6 +124,9 @@ def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 
 
 def updateSoundSplitterMonitorThread(exit=False):
+	# Ignore all this if secure flag is in effect.
+	if globalVars.appArgs.secure:
+		return
 	global soundSplitterMonitorCounter
 	soundSplitterMonitorCounter += 1
 	if exit:
