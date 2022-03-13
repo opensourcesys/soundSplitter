@@ -16,6 +16,7 @@ import types
 import addonHandler
 import config
 import core
+import globalVars
 import gui
 from gui.settingsDialogs import SettingsPanel
 import nvwave
@@ -162,6 +163,12 @@ def executeAsynchronously(gen):
 updateSoundSplitterMonitorThread()
 
 
+# Security: disable the global plugin altogether in secure mode.
+def disableInSecureMode(cls):
+	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
+
+
+@disableInSecureMode
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	scriptCategory = _("Sound Splitter")
