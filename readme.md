@@ -19,6 +19,12 @@ You can configure add-on settings from NVDA menu/Preferences/Settings/Sound Spli
 * Split NVDA sound and applications' sounds into left and right channels: checkinb this checkbox will enable sound splitting feature.
 * Switch left and right during sound split: by default, NVDA will be heard through the right channel if sound splitting is on. You can instead hear NVDA through the left channel by checking this checkbox.
 
+## Version 23.01
+
+* NVDA 2022.3 or later is required.
+* Windows 10 or later is required as Windows 7, 8, and 8.1 are no longer supported by Microsoft as of January 2023.
+* Updated psutil dependency to 5.9.4.
+
 ## Version 22.03
 
 * NVDA 2021.3 or later is required.
