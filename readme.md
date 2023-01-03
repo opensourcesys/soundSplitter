@@ -2,7 +2,7 @@
 
 * Authors: Joseph Lee and contributors
 * Download [stable version][1]
-* NVDA compatibility: 2022.3 and later
+* NVDA compatibility: 2022.4 and later
 
 This add-on, partly based on Tony's Enhancements by Tony Malykh, adds the ability to split audio from NVDA and other sounds onto separate audio channels.
 
@@ -18,6 +18,10 @@ You can configure add-on settings from NVDA menu/Preferences/Settings/Sound Spli
 
 * Split NVDA sound and applications' sounds into left and right channels: checkinb this checkbox will enable sound splitting feature.
 * Switch left and right during sound split: by default, NVDA will be heard through the right channel if sound splitting is on. You can instead hear NVDA through the left channel by checking this checkbox.
+
+## Version 23.02
+
+* NVDA 2022.4 or later is required.
 
 ## Version 23.01
 
