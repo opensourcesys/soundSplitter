@@ -22,6 +22,7 @@ You can configure add-on settings from NVDA menu/Preferences/Settings/Sound Spli
 ## Version 23.02
 
 * NVDA 2022.4 or later is required.
+* Windows 10 21H2 (November 2021 Update/build 19044) or later is required.
 
 ## Version 23.01
 
