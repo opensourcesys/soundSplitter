@@ -45,4 +45,4 @@ You can configure add-on settings from NVDA menu/Preferences/Settings/Sound Spli
 
 * Initial version based on Tony Malykh's Tony's Enhancements add-on.
 
-[1]: https://addons.nvda-project.org/files/get.php?file=soundsplitter
+[1]: https://addons.nvda-project.org/files/get.php?file=soundSplitter
