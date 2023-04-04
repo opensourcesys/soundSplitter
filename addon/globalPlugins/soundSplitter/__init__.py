@@ -29,11 +29,10 @@ import ui
 winmm = ctypes.windll.winmm
 
 # Sound Splitter config variables and settings UI.
-confspec = {
+config.conf.spec["soundSplitter"] = {
 	"soundSplitLeft": "boolean( default=False)",
 	"soundSplit": "boolean( default=False)",
 }
-config.conf.spec["soundSplitter"] = confspec
 
 addonHandler.initTranslation()
 
