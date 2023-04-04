@@ -4,10 +4,10 @@ on:
   push:
     tags: ["*"]
     # To build on main/master branch, uncomment the following line:
-    branches: [ master ]
+    branches: [ "*" ]
 
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
   workflow_dispatch:
 
