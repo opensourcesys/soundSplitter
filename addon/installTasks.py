@@ -1,5 +1,5 @@
 # SoundSplitter/installTasks.py
-# Copyright 2022 Joseph Lee, released under GPL.
+# Copyright: 2022, Joseph Lee. 2023, Luke Davis. Released under GPL V2.
 
 # Provides needed routines during add-on installation and removal.
 # Mostly checks compatibility.
@@ -16,8 +16,8 @@ def onInstall():
 	import winVersion
 	import globalVars
 	# Do not present dialogs if minimal mode is set.
-	currentWinVer = winVersion.getWinVer()
 	# Sound Splitter requires Windows 10 21H2 or later.
+	currentWinVer = winVersion.getWinVer()
 	# Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 	# Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 	unsupportedWindowsReleaseTitle = _("Unsupported Windows release")
@@ -37,4 +37,4 @@ def onInstall():
 					supportedBuild=minimumWinVer.build
 				), unsupportedWindowsReleaseTitle, wx.OK | wx.ICON_ERROR
 			)
-		raise RuntimeError("Attempting to install Sound Splitter on Windows releases earlier than 10")
+		raise RuntimeError("Attempting to install Sound Splitter on unsupported Windows release.")
