@@ -34,6 +34,7 @@ config.conf.spec["soundSplitter"] = {
 	"soundSplit": "boolean( default=False)",
 }
 
+
 # Security: disable alltogether in secure mode.
 def disableInSecureMode(cls):
 	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
