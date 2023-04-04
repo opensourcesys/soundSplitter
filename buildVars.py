@@ -25,13 +25,13 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("Splits sound from NvDA screen reader and other programs to separate channels"),
 	# version
-	"addon_version": "23.04",
+	"addon_version": "23.04.1",
 	# Author(s)
-	"addon_author": "Joseph Lee <joseph.lee22590@gmail.com>",
+	"addon_author": "Luke Davis <XLTechie@newanswertech.com>, Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
 	"addon_url": "https://addons.nvda-project.org/",
 	# URL for the add-on repository where the source code can be found
-	"addon_sourceURL": "https://github.com/josephsl/soundsplitter",
+	"addon_sourceURL": "https://github.com/opensourcesys/soundSplitter",
 	# Documentation file name
 	"addon_docFileName": "readme.html",
 	# Minimum NVDA version supported (e.g. "2018.3.0", minor version is optional)
@@ -57,6 +57,7 @@ addon_info = {
 # For more information on SCons Glob expressions please take a look at:
 # https://scons.org/doc/production/HTML/scons-user/apd.html
 pythonSources = [
+	"addon/*.py",  # To include installTasks.py
 	"addon/globalPlugins/soundSplitter/*.py"
 ]
 
