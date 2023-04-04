@@ -34,6 +34,11 @@ config.conf.spec["soundSplitter"] = {
 	"soundSplit": "boolean( default=False)",
 }
 
+# Security: disable alltogether in secure mode.
+def disableInSecureMode(cls):
+	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
+
+
 addonHandler.initTranslation()
 
 
@@ -49,7 +54,7 @@ class SettingsDialog(SettingsPanel):
 		label = _("&Split NVDA sound and applications' sounds into left and right channels")
 		self.soundSplitCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
 		self.soundSplitCheckbox.Value = config.conf["soundSplitter"]["soundSplit"]
-		# checkbox switch left and rright during sound split
+		# checkbox switch left and right during sound split
 		# Translators: Checkbox for switching left and right sound split
 		label = _("Switch &left and right during sound split")
 		self.soundSplitLeftCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
@@ -103,7 +108,11 @@ def setAppsVolume(volumes=None, exit=False):
 
 	audioSessions = AudioUtilities.GetAllSessions()
 	for s in audioSessions:
-		if not exit and s.Process is not None and s.ProcessId == os.getpid():
+		if (
+			not exit
+			and s.Process is not None
+			and s.ProcessId == os.getpid()  # FixMe should this be here? (Luke)
+		):
 			continue
 		channelVolume = s._ctl.QueryInterface(IChannelAudioVolume)
 		if channelVolume.GetChannelCount() == 2:
@@ -140,35 +149,29 @@ def updateSoundSplitterMonitorThread(exit=False):
 
 
 def executeAsynchronously(gen):
-	"""
-	This function executes a generator-function in such a manner, that allows updates
+	"""This function executes a generator in such a manner, that allows updates
 	from the operating system to be processed during execution.
-	Specifically, every time the generator function yilds a positive number,,
-	the rest of the generator function will be executed from within wx.CallLater() call.
-	If generator function yields a value of 0, then the rest of the generator function
-	will be executed from within wx.CallAfter() call.
-	This allows clear and simple expression of the logic inside the generator function,
+	Specifically, every time the generator yields a positive number,,
+	the rest of the generator function will be executed from within wx.CallLater().
+	If the generator yields a value of 0, then the rest of the generator
+	will be executed from within wx.CallAfter().
+	This allows clear and simple expression of the logic inside the generator body,
 	while still allowing NVDA to process update events from the operating system.
-	Essentially the generator function will be paused every time it calls yield, then the updates will be
+	Essentially the generator will be paused every time it calls yield, then the updates will be
 	processed by NVDA and then the remainder of generator function will continue executing.
 	"""
 	if not isinstance(gen, types.GeneratorType):
-		raise Exception("Generator function required")
+		raise Exception("A generator is required")
 	try:
 		value = gen.__next__()
 	except StopIteration:
 		return
-	# The below line may require a rewrite as multiple Flake8/lint errors are raised.
+	# FixMe: The below line may require a rewrite as multiple Flake8/lint errors are raised.
 	l = lambda gen=gen: executeAsynchronously(gen)  # NOQA
 	core.callLater(value, executeAsynchronously, gen)
 
 
 updateSoundSplitterMonitorThread()
-
-
-# Security: disable the global plugin altogether in secure mode.
-def disableInSecureMode(cls):
-	return globalPluginHandler.GlobalPlugin if globalVars.appArgs.secure else cls
 
 
 @disableInSecureMode
@@ -177,7 +180,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	scriptCategory = _("Sound Splitter")
 
 	def __init__(self, *args, **kwargs):
-		super(GlobalPlugin, self).__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 		global originalWaveOpen
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
@@ -192,6 +195,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		updateSoundSplitterMonitorThread(exit=True)
 		nvwave.WavePlayer.open = originalWaveOpen
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SettingsDialog)
+		super().terminate()  # Probably unnecessary but maybe needed in the future
 
 	def handleConfigProfileSwitch(self):
 		updateSoundSplitterMonitorThread()
