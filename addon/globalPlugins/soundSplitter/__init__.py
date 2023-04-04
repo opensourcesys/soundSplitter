@@ -1,9 +1,9 @@
 # -*- coding: UTF-8 -*-
 # Sound Splitter add-on
 # Originally part of Tony's Enhancements add-on
-# Sound Splitter copyright 2022 Joseph Lee
+# Copyright: 2022, Joseph Lee. 2023, Luke Davis.
 # Tony's Enhancements copyright (C) 2019 Tony Malykh
-# This file is covered by the GNU General Public License.
+# This file is covered by the GNU General Public License version 2.
 # See the file LICENSE for more details.
 
 # Joseph Lee: completely rewritten to make it compliant with NVDA Core expectations
