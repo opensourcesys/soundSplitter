@@ -10,10 +10,13 @@
 # and to align with many other add-ons.
 # This is evident in config access and the ability to handle config profile switches.
 
-import globalPluginHandler
 import ctypes
 import types
+import wx
+import os
+
 import addonHandler
+import globalPluginHandler
 import config
 import core
 import globalVars
@@ -22,7 +25,6 @@ from gui.settingsDialogs import SettingsPanel
 import nvwave
 from scriptHandler import script
 import ui
-import wx
 
 winmm = ctypes.windll.winmm
 
@@ -101,7 +103,6 @@ def setAppsVolume(volumes=None, exit=False):
 	rightVolume /= 100.0
 
 	audioSessions = AudioUtilities.GetAllSessions()
-	import os
 	for s in audioSessions:
 		if not exit and s.Process is not None and s.ProcessId == os.getpid():
 			continue
