@@ -12,6 +12,7 @@
 
 import ctypes
 import types
+from typing import Optional
 import wx
 import os
 
@@ -21,7 +22,7 @@ import config
 import core
 import globalVars
 import gui
-from gui.settingsDialogs import SettingsPanel
+from gui.settingsDialogs import SettingsPanel, PANEL_DESCRIPTION_WIDTH
 import nvwave
 from scriptHandler import script
 import ui
@@ -43,12 +44,48 @@ def disableInSecureMode(cls):
 addonHandler.initTranslation()
 
 
+#: Tracks the state of WASAPI at NVDA startup, since it can change while running but not be effective.
+_usingWASAPIAtStartup: Optional[bool] = None
+
+def isUsingWASAPI() -> bool:
+	"""Returns True if WASAPI was enabled in NVDA during startup, False if not or unsupported in this version."""
+	global _usingWASAPIAtStartup
+	def reallyCheck_isUsingWASAPI() -> bool:
+		"""Nested function to do the actual checking."""
+		try:
+			if config.conf["audio"]["wasapi"]:
+				return True
+			else:
+				return False
+		except KeyError:
+			return False
+	# If this is the first run, establish the state for all future runs
+	if _usingWASAPIAtStartup is None:
+		_usingWASAPIAtStartup = reallyCheck_isUsingWASAPI()
+	else:
+		return _usingWASAPIAtStartup
+
+
 class SettingsDialog(SettingsPanel):
 	# Translators: Title for the settings dialog
 	title = _("Sound Splitter")
 
-	def makeSettings(self, settingsSizer):
+	wasapiDisablementPanelDescription = _(
+		# Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
+		"The Sound Splitter add-on can not currently be used in this version of NVDA while "
+		"WASAPI is enabled in NVDA Advanced settings.\n"
+		"If you want to use Sound Splitter, first disable WASAPI, then restart NVDA.\n"
+		"The author apologizes for this inconvenience, and intends to support WASAPI as soon as possible."
+	)
+		
+	def makeSettings(self, settingsSizer) -> None:
+		# Panel description is an apology notification if WASAPI is enabled
+		if isUsingWASAPI():
+			SettingsDialog.panelDescription = self.wasapiDisablementPanelDescription
 		sHelper = gui.guiHelper.BoxSizerHelper(self, sizer=settingsSizer)
+		if isUsingWASAPI():
+			introItem = sHelper.addItem(wx.StaticText(self, label=self.panelDescription))
+			introItem.Wrap(self.scaleSize(PANEL_DESCRIPTION_WIDTH))
 
 		# checkbox Enable sound split
 		# Translators: Checkbox for sound split
@@ -60,6 +97,10 @@ class SettingsDialog(SettingsPanel):
 		label = _("Switch &left and right during sound split")
 		self.soundSplitLeftCheckbox = sHelper.addItem(wx.CheckBox(self, label=label))
 		self.soundSplitLeftCheckbox.Value = config.conf["soundSplitter"]["soundSplitLeft"]
+		if isUsingWASAPI():
+			self.soundSplitCheckbox.Disable()
+			self.soundSplitLeftCheckbox.Disable()
+
 
 	def onSave(self):
 		config.conf["soundSplitter"]["soundSplit"] = self.soundSplitCheckbox.Value
@@ -71,7 +112,7 @@ class SettingsDialog(SettingsPanel):
 originalWaveOpen = None
 
 
-def preWaveOpen(selfself, *args, **kwargs):
+def noWASAPI_preWaveOpen(selfself, *args, **kwargs):
 	global originalWaveOpen
 	result = originalWaveOpen(selfself, *args, **kwargs)
 	# All we care about is splitting sounds, so set volume to 100 percent always.
@@ -87,6 +128,8 @@ def preWaveOpen(selfself, *args, **kwargs):
 	winmm.waveOutSetVolume(selfself._waveout, volume2)
 	return result
 
+if not isUsingWASAPI():
+	preWaveOpen = noWASAPI_preWaveOpen
 
 def setAppsVolume(volumes=None, exit=False):
 	from . pycaw.pycaw import AudioUtilities, IChannelAudioVolume
@@ -127,7 +170,10 @@ soundSplitterMonitorCounter = 0
 def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 	global soundSplitterMonitorCounter
 	while localSoundSplitterMonitorCounter == soundSplitterMonitorCounter:
-		if not config.conf["soundSplitter"]["soundSplit"]:
+		if (
+			not config.conf["soundSplitter"]["soundSplit"]
+			or isUsingWASAPI()
+		):
 			return
 		setAppsVolume()
 		yield 1000
@@ -135,7 +181,7 @@ def soundSplitterMonitorThread(localSoundSplitterMonitorCounter):
 
 def updateSoundSplitterMonitorThread(exit=False):
 	# Ignore all this if secure flag is in effect.
-	if globalVars.appArgs.secure:
+	if globalVars.appArgs.secure or isUsingWASAPI():
 		return
 	global soundSplitterMonitorCounter
 	soundSplitterMonitorCounter += 1
@@ -174,6 +220,12 @@ def executeAsynchronously(gen):
 
 updateSoundSplitterMonitorThread()
 
+wasapiDisablementMessage = _(
+	# Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
+	"Sound Splitter is disabled while WASAPI is being used. "
+	"Please Turn off WASAPI in NVDA Advanced settings, and try again."
+)
+
 
 @disableInSecureMode
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
@@ -183,18 +235,20 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
 		global originalWaveOpen
+		if not isUsingWASAPI():
+			originalWaveOpen = nvwave.WavePlayer.open
+			nvwave.WavePlayer.open = preWaveOpen
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.append(SettingsDialog)
 		config.post_configProfileSwitch.register(self.handleConfigProfileSwitch)
 		config.post_configReset.register(self.reload)
-		originalWaveOpen = nvwave.WavePlayer.open
-		nvwave.WavePlayer.open = preWaveOpen
 
 	def terminate(self):
 		global originalWaveOpen
 		config.post_configProfileSwitch.unregister(self.handleConfigProfileSwitch)
 		config.post_configReset.unregister(self.reload)
 		updateSoundSplitterMonitorThread(exit=True)
-		nvwave.WavePlayer.open = originalWaveOpen
+		if not isUsingWASAPI():
+			nvwave.WavePlayer.open = originalWaveOpen
 		gui.settingsDialogs.NVDASettingsDialog.categoryClasses.remove(SettingsDialog)
 		super().terminate()  # Probably unnecessary but maybe needed in the future
 
@@ -210,6 +264,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gesture="kb:NVDA+Alt+S"
 	)
 	def script_toggleSoundSplit(self, gesture):
+		if isUsingWASAPI():
+			ui.message(wasapiDisablementMessage)
+			return
 		soundSplit = config.conf["soundSplitter"]["soundSplit"]
 		soundSplitLeft = config.conf["soundSplitter"]["soundSplitLeft"]
 		if not soundSplit:
