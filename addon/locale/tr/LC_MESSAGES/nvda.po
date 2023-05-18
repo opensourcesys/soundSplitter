@@ -1,0 +1,67 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Ses Ayırıcı 23.5.0\n"
+"POT-Creation-Date: 2023-05-17 14:41+0300\n"
+"PO-Revision-Date: 2023-05-17 14:46+0300\n"
+"Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
+"Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Poedit-Basepath: ../../../globalPlugins\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: soundSplitter/__init__.py:71 soundSplitter/__init__.py:233
+msgid "Sound Splitter"
+msgstr "Ses Ayırıcı"
+
+#: soundSplitter/__init__.py:75
+msgid ""
+"The Sound Splitter add-on can not currently be used in this version of NVDA "
+"while WASAPI is enabled in NVDA Advanced settings.\n"
+"If you want to use Sound Splitter, first disable WASAPI, then restart NVDA.\n"
+"The author apologizes for this inconvenience, and intends to support WASAPI "
+"as soon as possible."
+msgstr ""
+"WASAPI, NVDA Gelişmiş ayarlarında etkinleştirildiğinde, Ses Ayırıcı "
+"eklentisi şu anda NVDA'nın bu sürümünde kullanılamaz.\n"
+"Ses Ayırıcı eklentisini kullanmak istiyorsanız, önce WASAPI'yi devre dışı "
+"bırakın, ardından NVDA'yı yeniden başlatın.\n"
+"Yazar bu rahatsızlıktan dolayı özür diler ve mümkün olan en kısa sürede "
+"WASAPI'yi desteklemek niyetindedir."
+
+#: soundSplitter/__init__.py:92
+msgid "&Split NVDA sound and applications' sounds into left and right channels"
+msgstr "NVDA &sesini ve uygulamaların seslerini sol ve sağ kanallara ayır"
+
+#: soundSplitter/__init__.py:97
+msgid "Switch &left and right during sound split"
+msgstr "Ses ayırma sırasında so&la ve sağa geçiş yap"
+
+#: soundSplitter/__init__.py:225
+msgid ""
+"Sound Splitter is disabled while WASAPI is being used. Please Turn off "
+"WASAPI in NVDA Advanced settings, and try again."
+msgstr ""
+"WASAPI kullanılırken Ses Ayırıcı devre dışı bırakılır. Lütfen NVDA Gelişmiş "
+"ayarlarında WASAPI'yi kapatın ve tekrar deneyin."
+
+#: soundSplitter/__init__.py:263
+msgid "Toggle sound split"
+msgstr "Ses Ayırıcıyı aç/kapat"
+
+#: soundSplitter/__init__.py:276
+msgid "Sound split enabled, NVDA on the right"
+msgstr "Ses ayırıcı etkin, NVDA sesi sağda"
+
+#: soundSplitter/__init__.py:280
+msgid "Sound split enabled, NVDA on the left"
+msgstr "Ses ayırıcı etkin, NVDA sesi solda"
+
+#: soundSplitter/__init__.py:285
+msgid "Sound split disabled"
+msgstr "Ses ayırıcı devre dışı"
