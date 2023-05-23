@@ -53,12 +53,11 @@ def isUsingWASAPI() -> bool:
 	def reallyCheck_isUsingWASAPI() -> bool:
 		"""Nested function to do the actual checking."""
 		try:
-			if config.conf["audio"]["wasapi"]:
-				return True
-			else:
-				return False
+			# Check that WASAPI feature is in the current build
+			config.conf.spec["audio"]["wasapi"]
 		except KeyError:
 			return False
+		return config.conf["audio"]["wasapi"]
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
 		_usingWASAPIAtStartup = reallyCheck_isUsingWASAPI()
@@ -223,7 +222,7 @@ updateSoundSplitterMonitorThread()
 wasapiDisablementMessage = _(
 	# Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
 	"Sound Splitter is disabled while WASAPI is being used. "
-	"Please Turn off WASAPI in NVDA Advanced settings, and try again."
+	"Please Turn off WASAPI in NVDA Advanced settings, restart NVDA and try again."
 )
 
 
