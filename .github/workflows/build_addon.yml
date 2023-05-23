@@ -4,7 +4,7 @@ on:
   push:
     tags: ["*"]
     # To build on main/master branch, uncomment the following line:
-    branches: [ main ]
+    #branches: [ main ]
 
   pull_request:
     branches: [ main ]
@@ -35,7 +35,9 @@ jobs:
       run: export SKIP=no-commit-to-branch; pre-commit run --all
 
     - name: building addon
-      run: scons
+      run: |
+        scons
+        scons pot
 
     - uses: actions/upload-artifact@v3
       with:

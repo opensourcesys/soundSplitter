@@ -65,3 +65,9 @@ msgstr "Ses ayırıcı etkin, NVDA sesi solda"
 #: soundSplitter/__init__.py:285
 msgid "Sound split disabled"
 msgstr "Ses ayırıcı devre dışı"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
+msgid "Splits sound from NvDA screen reader and other programs to separate channels"
+msgstr "NVDA ekran okuyucusundan ve diğer programlardan gelen sesleri ayrı kanallara böler"

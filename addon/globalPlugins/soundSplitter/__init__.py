@@ -61,8 +61,7 @@ def isUsingWASAPI() -> bool:
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
 		_usingWASAPIAtStartup = reallyCheck_isUsingWASAPI()
-	else:
-		return _usingWASAPIAtStartup
+	return _usingWASAPIAtStartup
 
 
 class SettingsDialog(SettingsPanel):
