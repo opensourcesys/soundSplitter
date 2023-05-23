@@ -1,8 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Ses Ayırıcı 23.5.0\n"
-"POT-Creation-Date: 2023-05-17 14:41+0300\n"
-"PO-Revision-Date: 2023-05-17 14:46+0300\n"
+"Project-Id-Version: Ses Ayırıcı 23.5.1\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-05-23 07:10-0400\n"
+"PO-Revision-Date: 2023-05-23 18:56+0300\n"
 "Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
 "Language: tr_TR\n"
@@ -10,16 +11,42 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.1\n"
 "X-Poedit-Basepath: ../../../globalPlugins\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: soundSplitter/__init__.py:71 soundSplitter/__init__.py:233
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+#: addon/installTasks.py:23
+msgid "Unsupported Windows release"
+msgstr "Desteklenmeyen Windows sürümü"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#: addon/installTasks.py:31
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Bu eklenti tarafından desteklenmeyen bir Windows sürümü olan {releaseName} "
+"({build}) kullanıyorsunuz.\n"
+"Bu eklenti, {supportedReleaseName} ({supportedBuild}) veya sonraki bir "
+"sürümünü gerektirir."
+
+#. Translators: Title for the settings dialog
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+#: addon/globalPlugins/soundSplitter/__init__.py:69
+#: addon/globalPlugins/soundSplitter/__init__.py:231 buildVars.py:23
 msgid "Sound Splitter"
 msgstr "Ses Ayırıcı"
 
-#: soundSplitter/__init__.py:75
+#. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
+#: addon/globalPlugins/soundSplitter/__init__.py:73
 msgid ""
 "The Sound Splitter add-on can not currently be used in this version of NVDA "
 "while WASAPI is enabled in NVDA Advanced settings.\n"
@@ -34,40 +61,54 @@ msgstr ""
 "Yazar bu rahatsızlıktan dolayı özür diler ve mümkün olan en kısa sürede "
 "WASAPI'yi desteklemek niyetindedir."
 
-#: soundSplitter/__init__.py:92
+#. checkbox Enable sound split
+#. Translators: Checkbox for sound split
+#: addon/globalPlugins/soundSplitter/__init__.py:90
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
 msgstr "NVDA &sesini ve uygulamaların seslerini sol ve sağ kanallara ayır"
 
-#: soundSplitter/__init__.py:97
+#. checkbox switch left and right during sound split
+#. Translators: Checkbox for switching left and right sound split
+#: addon/globalPlugins/soundSplitter/__init__.py:95
 msgid "Switch &left and right during sound split"
 msgstr "Ses ayırma sırasında so&la ve sağa geçiş yap"
 
-#: soundSplitter/__init__.py:225
+#. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
+#: addon/globalPlugins/soundSplitter/__init__.py:223
+#| msgid ""
+#| "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
+#| "WASAPI in NVDA Advanced settings, and try again."
 msgid ""
 "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
-"WASAPI in NVDA Advanced settings, and try again."
+"WASAPI in NVDA Advanced settings, restart NVDA and try again."
 msgstr ""
 "WASAPI kullanılırken Ses Ayırıcı devre dışı bırakılır. Lütfen NVDA Gelişmiş "
-"ayarlarında WASAPI'yi kapatın ve tekrar deneyin."
+"ayarlarında WASAPI'yi kapatın, NVDA'yı yeniden başlatın ve tekrar deneyin."
 
-#: soundSplitter/__init__.py:263
+#. Translators: input help message for toggle sound splitter command.
+#: addon/globalPlugins/soundSplitter/__init__.py:261
 msgid "Toggle sound split"
 msgstr "Ses Ayırıcıyı aç/kapat"
 
-#: soundSplitter/__init__.py:276
+#. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:274
 msgid "Sound split enabled, NVDA on the right"
 msgstr "Ses ayırıcı etkin, NVDA sesi sağda"
 
-#: soundSplitter/__init__.py:280
+#. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:278
 msgid "Sound split enabled, NVDA on the left"
 msgstr "Ses ayırıcı etkin, NVDA sesi solda"
 
-#: soundSplitter/__init__.py:285
+#. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:283
 msgid "Sound split disabled"
 msgstr "Ses ayırıcı devre dışı"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:26
-msgid "Splits sound from NvDA screen reader and other programs to separate channels"
-msgstr "NVDA ekran okuyucusundan ve diğer programlardan gelen sesleri ayrı kanallara böler"
+msgid ""
+"Splits sound from NvDA screen reader and other programs to separate channels"
+msgstr ""
+"NVDA ekran okuyucu ve diğer programlardan gelen sesi ayrı kanallara böler"
