@@ -42,7 +42,9 @@ jobs:
     - uses: actions/upload-artifact@v3
       with:
         name: packaged_addon
-        path: ./*.nvda-addon
+        path: |
+          ./*.nvda-addon
+          ./*.pot
 
   upload_release:
     runs-on: ubuntu-latest
@@ -58,6 +60,8 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: packaged_addon/*.nvda-addon
+        files: |
+          packaged_addon/*.nvda-addon
+          packaged_addon/*.pot
         fail_on_unmatched_files: true
         prerelease: ${{ contains(github.ref, '-') }}
