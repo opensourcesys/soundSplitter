@@ -4,10 +4,10 @@ on:
   push:
     tags: ["*"]
     # To build on main/master branch, uncomment the following line:
-    #branches: [ main ]
+    #branches: [ main, master, prime ]
 
   pull_request:
-    branches: [ main ]
+    branches: [ main, master, prime ]
 
   workflow_dispatch:
 
@@ -21,7 +21,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.9
+        python-version: 3.7
         cache: 'pip'
 
     - name: Install dependencies
