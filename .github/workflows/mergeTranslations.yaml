@@ -1,0 +1,25 @@
+# https://crontab.guru/crontab.5.html
+
+name: Check for and merge l10n updates
+
+on:
+  workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '10 00 * * 6' # At 00:10 on Saturdays
+
+jobs:
+  update-translations:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout master
+      uses: actions/checkout@v3
+    - name: Merge changes
+      run: |
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+        git pull
+        git remote add l10n https://github.com/nvdaaddons/soundSplitter
+        git fetch l10n
+        git merge -q --ff -m "Translations automerge" l10n/stable
+        git push         
