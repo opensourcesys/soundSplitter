@@ -1,25 +1,29 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the soundSplitter package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: Ses Ayırıcı 23.5.1\n"
+"Project-Id-Version: soundSplitter 23.5.3\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2023-05-23 07:10-0400\n"
-"PO-Revision-Date: 2023-05-23 19:32+0300\n"
-"Last-Translator: Umut KORKMAZ <umutkork@gmail.com>\n"
-"Language-Team: Umut KORKMAZ <umutkork@gmail.com>\n"
-"Language: tr_TR\n"
+"POT-Creation-Date: 2023-06-16 19:35+0000\n"
+"PO-Revision-Date: 2023-06-16 23:02+0100\n"
+"Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
+"Language-Team: Equipa portuguesa do NVDA: Ângelo Abrantes e Rui Fontes "
+"(16-06-2023)\n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.1\n"
-"X-Poedit-Basepath: ../../../globalPlugins\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr "Desteklenmeyen Windows sürümü"
+msgstr "Versão do Windows não suportada"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -29,17 +33,16 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
-"Bu eklenti tarafından desteklenmeyen bir Windows sürümü olan {releaseName} "
-"({build}) kullanıyorsunuz.\n"
-"Bu eklenti, {supportedReleaseName} ({supportedBuild}) veya sonraki bir "
-"sürümünü gerektirir."
+"Está a utilizar {releaseName} ({build}), uma versão do Windows não suportada "
+"por este extra.\n"
+"Este extra requer {supportedReleaseName} ({supportedBuild}) ou posterior."
 
 #. Translators: Title for the settings dialog
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 msgid "Sound Splitter"
-msgstr "Ses Ayırıcı"
+msgstr "Divisor de som"
 
 #. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
 msgid ""
@@ -49,53 +52,53 @@ msgid ""
 "The author apologizes for this inconvenience, and intends to support WASAPI "
 "as soon as possible."
 msgstr ""
-"WASAPI, NVDA Gelişmiş ayarlarında etkinleştirildiğinde, Ses Ayırıcı "
-"eklentisi şu anda NVDA'nın bu sürümünde kullanılamaz.\n"
-"Ses Ayırıcı eklentisini kullanmak istiyorsanız, önce WASAPI'yi devre dışı "
-"bırakın, ardından NVDA'yı yeniden başlatın.\n"
-"Yazar bu rahatsızlıktan dolayı özür diler ve mümkün olan en kısa sürede "
-"WASAPI'yi desteklemek niyetindedir."
+"Atualmente, o extra Sound Splitter não pode ser utilizado nesta versão do "
+"NVDA enquanto o WASAPI estiver ativado nas definições avançadas do NVDA.\n"
+"Se pretender utilizar o Sound Splitter, desactive primeiro o WASAPI e, em "
+"seguida, reinicie o NVDA.\n"
+"O autor pede desculpa por este incómodo e tenciona suportar o WASAPI assim "
+"que possível."
 
 #. checkbox Enable sound split
 #. Translators: Checkbox for sound split
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
-msgstr "NVDA &sesini ve uygulamaların seslerini sol ve sağ kanallara ayır"
+msgstr ""
+"&Dividir o som do NVDA e os sons das aplicações em canais à esquerda e à "
+"direita."
 
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
 msgid "Switch &left and right during sound split"
-msgstr "Ses ayırma sırasında so&la ve sağa geçiş yap"
+msgstr "Trocar a &esquerda e a direita durante a divisão do som."
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
-#| msgid ""
-#| "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
-#| "WASAPI in NVDA Advanced settings, and try again."
 msgid ""
 "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
 "WASAPI in NVDA Advanced settings, restart NVDA and try again."
 msgstr ""
-"WASAPI kullanılırken Ses Ayırıcı devre dışı bırakılır. Lütfen NVDA Gelişmiş "
-"ayarlarında WASAPI'yi kapatın, NVDA'yı yeniden başlatın ve tekrar deneyin."
+"O divisor de som está desativado enquanto o WASAPI está a ser utilizado. "
+"Desactive a WASAPI nas definições avançadas do NVDA, reinicie o NVDA e tente "
+"novamente."
 
 #. Translators: input help message for toggle sound splitter command.
 msgid "Toggle sound split"
-msgstr "Ses Ayırıcıyı aç/kapat"
+msgstr "Alternar a divisão do som"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the right"
-msgstr "Ses ayırıcı etkin, NVDA sesi sağda"
+msgstr "Divisão de som activada, NVDA à direita"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the left"
-msgstr "Ses ayırıcı etkin, NVDA sesi solda"
+msgstr "Divisão de som activada, NVDA à esquerda"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split disabled"
-msgstr "Ses ayırıcı devre dışı"
+msgstr "Som dividido desactivado"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Splits sound from NvDA screen reader and other programs to separate channels"
 msgstr ""
-"NVDA ekran okuyucu ve diğer programlardan gelen sesi ayrı kanallara böler"
+"Divide o som do leitor de ecrã NvDA e de outros programas em canais separados"
