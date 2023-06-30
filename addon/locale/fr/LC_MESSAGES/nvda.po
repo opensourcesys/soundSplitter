@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the soundSplitter package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: soundSplitter 23.5.4\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-06-23 19:35+0000\n"
+"PO-Revision-Date: 2023-06-23 22:54+0200\n"
+"Last-Translator: Rémy Ruiz <remyruiz@gmail.com>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+
+#. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
+#. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+msgid "Unsupported Windows release"
+msgstr "Version de Windows non pris en charge"
+
+#. Translators: Dialog text shown when trying to install the add-on on
+#. releases earlier than minimum supported release.
+#, python-brace-format
+msgid ""
+"You are using {releaseName} ({build}), a Windows release not supported by this add-on.\n"
+"This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
+msgstr ""
+"Vous utilisez {releaseName} ({build}), une version de Windows qui   n'est pas pris en charge par "
+"cette extension.\n"
+"Cette extension nécessite {supportedReleaseName} ({supportedBuild}) ou version ultérieure."
+
+#. Translators: Title for the settings dialog
+#. Add-on summary, usually the user visible name of the addon.
+#. Translators: Summary for this add-on
+#. to be shown on installation and add-on information found in Add-ons Manager.
+msgid "Sound Splitter"
+msgstr "Sound Splitter"
+
+#. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
+msgid ""
+"The Sound Splitter add-on can not currently be used in this version of NVDA while WASAPI is "
+"enabled in NVDA Advanced settings.\n"
+"If you want to use Sound Splitter, first disable WASAPI, then restart NVDA.\n"
+"The author apologizes for this inconvenience, and intends to support WASAPI as soon as possible."
+msgstr ""
+"L'extension Sound Splitter ne peut pas être utilisée dans cette version de NVDA pendant que "
+"WASAPI est activé dans les paramètres avancé de NVDA.\n"
+"Si vous voulez utiliser Sound Splitter, désactivez d'abord WASAPI, puis redémarrez NVDA.\n"
+"L'auteur s'excuse pour cet inconvénient et a l'intention de supporter WASAPI dès que possible."
+
+#. checkbox Enable sound split
+#. Translators: Checkbox for sound split
+msgid "&Split NVDA sound and applications' sounds into left and right channels"
+msgstr "&Séparer le son de NVDA et les sons des applications entre canaux gauche et droit"
+
+#. checkbox switch left and right during sound split
+#. Translators: Checkbox for switching left and right sound split
+msgid "Switch &left and right during sound split"
+msgstr "Intervertir la &gauche et la droite pendant que le son est séparé"
+
+#. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
+msgid ""
+"Sound Splitter is disabled while WASAPI is being used. Please Turn off WASAPI in NVDA Advanced "
+"settings, restart NVDA and try again."
+msgstr ""
+"Sound Splitter est désactivé pendant que WASAPI est utilisé. Veuillez désactiver WASAPI dans les "
+"paramètres avancé de NVDA, redémarrer NVDA et réessayer."
+
+#. Translators: input help message for toggle sound splitter command.
+msgid "Toggle sound split"
+msgstr "Basculer le séparateur de son"
+
+#. Translators: presented when toggling sound splitter.
+msgid "Sound split enabled, NVDA on the right"
+msgstr "Séparateur de son activé, NVDA à droite"
+
+#. Translators: presented when toggling sound splitter.
+msgid "Sound split enabled, NVDA on the left"
+msgstr "Séparateur de son activé, NVDA à gauche"
+
+#. Translators: presented when toggling sound splitter.
+msgid "Sound split disabled"
+msgstr "Séparateur de son désactivé"
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+msgid "Splits sound from NvDA screen reader and other programs to separate channels"
+msgstr "Séparer le son du lecteur d'écran NVDA et autres programmes dans des canaux séparés"
