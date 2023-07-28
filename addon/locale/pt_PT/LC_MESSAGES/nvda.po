@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: soundSplitter 23.5.3\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-06-16 19:35+0000\n"
-"PO-Revision-Date: 2023-06-16 23:02+0100\n"
+"PO-Revision-Date: 2023-07-28 16:55+0100\n"
 "Last-Translator: Ângelo Abrantes <ampa4374@gmail.com>\n"
 "Language-Team: Equipa portuguesa do NVDA: Ângelo Abrantes e Rui Fontes "
 "(16-06-2023)\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -64,12 +64,12 @@ msgstr ""
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
 msgstr ""
 "&Dividir o som do NVDA e os sons das aplicações em canais à esquerda e à "
-"direita."
+"direita"
 
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
 msgid "Switch &left and right during sound split"
-msgstr "Trocar a &esquerda e a direita durante a divisão do som."
+msgstr "Trocar a &esquerda e a direita durante a divisão do som"
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
 msgid ""
