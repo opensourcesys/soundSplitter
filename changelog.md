@@ -1,5 +1,9 @@
 # Changelog:
 
+### 23.5.7
+
+* Handle the changed capitalization for the WASAPI config key in 2023.3 series NVDA alphas.
+
 ### 23.5.2
 
 Bug fixes:

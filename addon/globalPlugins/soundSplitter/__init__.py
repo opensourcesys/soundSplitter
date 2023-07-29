@@ -52,12 +52,17 @@ def isUsingWASAPI() -> bool:
 	global _usingWASAPIAtStartup
 	def reallyCheck_isUsingWASAPI() -> bool:
 		"""Nested function to do the actual checking."""
-		try:
-			# Check that WASAPI feature is in the current build
-			config.conf.spec["audio"]["wasapi"]
+		# Some NVDA alphas used wasapi, while the newer approach is to use WASAPI. Must test both, WASAPI first.
+		usingWASAPI: bool = False
+		try:  # Modern alphas (2023.3 series)
+			usingWASAPI = config.conf.spec["audio"]["WASAPI"]
 		except KeyError:
-			return False
-		return config.conf["audio"]["wasapi"]
+			try:  # Alphas earlier in the 2023.2 series
+				usingWASAPI = config.conf.spec["audio"]["wasapi"]
+			except KeyError:
+				# We only get here, if neither of them exists.
+				pass
+		return usingWASAPI
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
 		_usingWASAPIAtStartup = reallyCheck_isUsingWASAPI()
