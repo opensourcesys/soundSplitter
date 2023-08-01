@@ -55,13 +55,17 @@ def isUsingWASAPI() -> bool:
 		# Some NVDA alphas used wasapi, while the newer approach is to use WASAPI. Must test both, WASAPI first.
 		usingWASAPI: bool = False
 		try:  # Modern alphas (2023.3 series)
-			usingWASAPI = config.conf.spec["audio"]["WASAPI"]
+			config.conf.spec["audio"]["WASAPI"]
 		except KeyError:
 			try:  # Alphas earlier in the 2023.2 series
-				usingWASAPI = config.conf.spec["audio"]["wasapi"]
+				config.conf.spec["audio"]["wasapi"]
 			except KeyError:
 				# We only get here, if neither of them exists.
 				pass
+			else:
+				usingWASAPI = config.conf["audio"]["wasapi"]
+		else:
+			usingWASAPI = config.conf["audio"]["WASAPI"]
 		return usingWASAPI
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
