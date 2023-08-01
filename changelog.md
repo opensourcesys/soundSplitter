@@ -1,5 +1,11 @@
 # Changelog:
 
+### 23.5.8
+
+Hotfix for WASAPI detection, contributed by @CyrilleB79:
+Previous WASAPI check accidentally used config spec where config was meant. This is fixed.
+It now also handles the case of using a newer NVDA config with an older NVDA.
+
 ### 23.5.7
 
 * Handle the changed capitalization for the WASAPI config key in 2023.3 series NVDA alphas.
