@@ -1,4 +1,4 @@
-# Äänenjakaja #
+# Äänijakaja #
 
 * Tekijät: Joseph Lee, Luke Davis sekä muut
 * Lataa [vakaa versio][1]
@@ -12,20 +12,20 @@ Huom: Tätä lisäosaa ei ole tarkoitettu suojatuissa ruuduissa käytettäväksi
 
 ## Komennot:
 
-* Alt+NVDA+S: Vaihtaa Äänenjakajan tilaa siten, että se on joko käytössä ja
+* Alt+NVDA+S: Vaihtaa Äänijakajan tilaa siten, että se on joko käytössä ja
   NVDA kuuluu oikeasta kanavasta, vasemmasta kanavasta tai pois käytöstä.
 
-## Äänenjakajan asetukset
+## Äänijakajan asetukset
 
 Voit muuttaa tämän lisäosan asetuksia kohdasta
-NVDA-valikko/Asetukset/Asetukset/Äänenjakaja-kategoria.
+NVDA-valikko/Asetukset/Asetukset/Äänijakaja-kategoria.
 
 * Jaa NVDA:n äänet oikeaan kanavaan ja muiden sovellusten vasempaan: tämän
-  valintaruudun valitseminen ottaa käyttöön äänenjakotoiminnon.
-* Vaihda vasen ja oikea keskenään äänenjakamisen ollessa käytössä: NVDA
-  kuuluu oletusarvoisesti oikeasta kanavasta, kun äänenjakaminen on
-  käytössä. Voit vaihtaa NVDA:n kuulumaan vasemmasta kanavasta valitsemalla
-  tämän valintaruudun.
+  valintaruudun valitseminen ottaa käyttöön äänijakotoiminnon.
+* Vaihda vasen ja oikea keskenään äänijaon ollessa käytössä: NVDA kuuluu
+  oletusarvoisesti oikeasta kanavasta, kun äänijako on käytössä. Voit
+  vaihtaa NVDA:n kuulumaan vasemmasta kanavasta valitsemalla tämän
+  valintaruudun.
 
 ## Versio 23.02
 
@@ -46,7 +46,7 @@ NVDA-valikko/Asetukset/Asetukset/Äänenjakaja-kategoria.
 * Tietoturvaa parannettu jättämällä lisäosa lataamatta, kun NVDA on
   käynnissä suojatussa tilassa.
 * Päivitetty psutil-riippuvuus versioksi 5.9.0.
-* Muutettu Äänenjakajan tilanvaihtokomento (Alt+NVDA+S) vaihtamaan NVDA
+* Muutettu Äänijakajan tilanvaihtokomento (Alt+NVDA+S) vaihtamaan NVDA
   oikeaan kanavaan, vasempaan kanavaan tai poistamaan lisäosa käytöstä.
 
 ## Versio 22.02.1

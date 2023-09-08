@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: soundSplitter 23.5.4\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-06-23 19:35+0000\n"
-"PO-Revision-Date: 2023-06-24 09:34+0200\n"
+"PO-Revision-Date: 2023-09-05 00:18+0200\n"
 "Last-Translator: Jani Kinnunen <janikinnunen340@gmail.com>\n"
 "Language-Team: fi_FI <janikinnunen340@gmail.com>\n"
 "Language: fi\n"
@@ -41,7 +41,7 @@ msgstr ""
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 msgid "Sound Splitter"
-msgstr "Äänenjakaja"
+msgstr "Äänijakaja"
 
 #. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
 msgid ""
@@ -51,10 +51,10 @@ msgid ""
 "The author apologizes for this inconvenience, and intends to support WASAPI "
 "as soon as possible."
 msgstr ""
-"Äänenjakaja-lisäosaa ei voi tällä hetkellä käyttää tässä NVDA:n versiossa, "
+"Äänijakaja-lisäosaa ei voi tällä hetkellä käyttää tässä NVDA:n versiossa, "
 "kun WASAPI on otettu käyttöön NVDA:n lisäasetusten paneelista.\n"
-"Mikäli haluat käyttää Äänenjakajaa, poista ensin WASAPI käytöstä ja "
-"käynnistä sen jälkeen NVDA uudelleen.\n"
+"Mikäli haluat käyttää Äänijakajaa, poista ensin WASAPI käytöstä ja käynnistä "
+"sen jälkeen NVDA uudelleen.\n"
 "Tekijä pahoittelee tätä hankaluutta ja aikoo tukea WASAPIa mahdollisimman "
 "pian."
 
@@ -66,31 +66,31 @@ msgstr "&Jaa NVDA:n äänet vasempaan kanavaan ja sovellusten äänet oikeaan"
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
 msgid "Switch &left and right during sound split"
-msgstr "Vaihda v&asen ja oikea keskenään äänenjakamisen aikana"
+msgstr "Vaihda v&asen ja oikea keskenään äänijaon aikana"
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
 msgid ""
 "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
 "WASAPI in NVDA Advanced settings, restart NVDA and try again."
 msgstr ""
-"Äänenjakaja on poissa käytöstä WASAPIa käytettäessä. Poista WASAPI käytöstä "
+"Äänijakaja on poissa käytöstä WASAPIa käytettäessä. Poista WASAPI käytöstä "
 "NVDA:n lisäasetuksista, käynnistä NVDA uudelleen ja yritä sitten uudelleen."
 
 #. Translators: input help message for toggle sound splitter command.
 msgid "Toggle sound split"
-msgstr "Vaihda äänenjakamisen tilaa"
+msgstr "Vaihda äänijaon tilaa"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the right"
-msgstr "Äänenjakaminen käytössä, NVDA oikealla"
+msgstr "Äänijako käytössä, NVDA oikealla"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the left"
-msgstr "Äänenjakaminen käytössä, NVDA vasemmalla"
+msgstr "Äänijako käytössä, NVDA vasemmalla"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split disabled"
-msgstr "Äänenjakaminen poistettu käytöstä"
+msgstr "Äänijako poistettu käytöstä"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
