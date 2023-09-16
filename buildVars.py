@@ -29,7 +29,7 @@ addon_info = {
 	# Author(s)
 	"addon_author": "Luke Davis <XLTechie@newanswertech.com>, Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
-	"addon_url": "https://addons.nvda-project.org/",
+	"addon_url": "https://github.com/opensourcesys/soundSplitter#readme",
 	# URL for the add-on repository where the source code can be found
 	"addon_sourceURL": "https://github.com/opensourcesys/soundSplitter",
 	# Documentation file name
