@@ -18,11 +18,13 @@ msgstr ""
 
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
+#: addon/installTasks.py:23
 msgid "Unsupported Windows release"
 msgstr "Desteklenmeyen Windows sürümü"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
+#: addon/installTasks.py:31
 #, python-brace-format
 msgid ""
 "You are using {releaseName} ({build}), a Windows release not supported by "
@@ -38,10 +40,13 @@ msgstr ""
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
+#: addon/globalPlugins/soundSplitter/__init__.py:69
+#: addon/globalPlugins/soundSplitter/__init__.py:231 buildVars.py:23
 msgid "Sound Splitter"
 msgstr "Ses Ayırıcı"
 
 #. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
+#: addon/globalPlugins/soundSplitter/__init__.py:73
 msgid ""
 "The Sound Splitter add-on can not currently be used in this version of NVDA "
 "while WASAPI is enabled in NVDA Advanced settings.\n"
@@ -58,15 +63,18 @@ msgstr ""
 
 #. checkbox Enable sound split
 #. Translators: Checkbox for sound split
+#: addon/globalPlugins/soundSplitter/__init__.py:90
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
 msgstr "NVDA &sesini ve uygulamaların seslerini sol ve sağ kanallara ayır"
 
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
+#: addon/globalPlugins/soundSplitter/__init__.py:95
 msgid "Switch &left and right during sound split"
 msgstr "Ses ayırma sırasında so&la ve sağa geçiş yap"
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
+#: addon/globalPlugins/soundSplitter/__init__.py:223
 #| msgid ""
 #| "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
 #| "WASAPI in NVDA Advanced settings, and try again."
@@ -78,23 +86,28 @@ msgstr ""
 "ayarlarında WASAPI'yi kapatın, NVDA'yı yeniden başlatın ve tekrar deneyin."
 
 #. Translators: input help message for toggle sound splitter command.
+#: addon/globalPlugins/soundSplitter/__init__.py:261
 msgid "Toggle sound split"
 msgstr "Ses Ayırıcıyı aç/kapat"
 
 #. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:274
 msgid "Sound split enabled, NVDA on the right"
 msgstr "Ses ayırıcı etkin, NVDA sesi sağda"
 
 #. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:278
 msgid "Sound split enabled, NVDA on the left"
 msgstr "Ses ayırıcı etkin, NVDA sesi solda"
 
 #. Translators: presented when toggling sound splitter.
+#: addon/globalPlugins/soundSplitter/__init__.py:283
 msgid "Sound split disabled"
 msgstr "Ses ayırıcı devre dışı"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:26
 msgid ""
 "Splits sound from NvDA screen reader and other programs to separate channels"
 msgstr ""
