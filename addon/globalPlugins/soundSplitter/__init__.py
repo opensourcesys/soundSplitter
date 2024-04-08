@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # Sound Splitter add-on
 # Originally part of Tony's Enhancements add-on
-# Copyright: 2022, Joseph Lee. 2023, Luke Davis.
+# Copyright: 2022, Joseph Lee. 2023-2024, Luke Davis.
 # Tony's Enhancements copyright (C) 2019 Tony Malykh
 # This file is covered by the GNU General Public License version 2.
 # See the file LICENSE for more details.
@@ -65,7 +65,7 @@ def isUsingWASAPI() -> bool:
 			else:
 				usingWASAPI = config.conf["audio"]["wasapi"]
 		else:
-			usingWASAPI = config.conf["audio"]["WASAPI"]
+			usingWASAPI = config.conf["audio"]["WASAPI"].__bool__()
 		return usingWASAPI
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
