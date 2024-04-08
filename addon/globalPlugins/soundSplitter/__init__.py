@@ -65,7 +65,7 @@ def isUsingWASAPI() -> bool:
 			else:
 				usingWASAPI = config.conf["audio"]["wasapi"]
 		else:
-			usingWASAPI = config.conf["audio"]["WASAPI"]
+			usingWASAPI = config.conf["audio"]["WASAPI"].__bool__()
 		return usingWASAPI
 	# If this is the first run, establish the state for all future runs
 	if _usingWASAPIAtStartup is None:
