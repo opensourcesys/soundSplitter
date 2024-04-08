@@ -15,7 +15,8 @@ def onInstall():
 	import wx
 	import winVersion
 	import globalVars
-	# Do not present dialogs if minimal mode is set.
+	from buildVersion import version_year, version_major
+	# Do not present dialog if minimal mode is set.
 	# Sound Splitter requires Windows 10 21H2 or later.
 	currentWinVer = winVersion.getWinVer()
 	# Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
@@ -35,21 +36,40 @@ def onInstall():
 					build=currentWinVer.build,
 					supportedReleaseName=minimumWinVer.releaseName,
 					supportedBuild=minimumWinVer.build
-				), unsupportedWindowsReleaseTitle, wx.OK | wx.ICON_ERROR
+				), unsupportedWindowsReleaseTitle, wx.OK
 			)
 		raise RuntimeError("Attempting to install Sound Splitter on unsupported Windows release.")
 	# Notify about sound split feature in 2024.2 versions of NVDA
+	preRelease_featureIncludedMsg_top: str = _(
+		# Translators: Part of a message shown before NVDA 2024.2 is released.
+		"The sound split feature will be included in NVDA version 2024.2. "
+		"It may already be available in your version, if you use alpha or beta releases of NVDA 2024.2."
+	)
+	featureIncludedMsg_top: str = _(
+		# Translators: Part of a message shown after NVDA 2024.2 is released.
+		"The sound split feature is now part of NVDA itself, as of NVDA 2024.2!"
+	)
+	featureIncludedMsg_body: str = _(
+		# Translators: The remainder of the message shown on installation.
+		"However, this is only helpful if you use WASAPI as your sound interface preference."
+		" (NVDA menu, Preferences, Settings, Advanced.)\n"
+		"While WASAPI is the default in modern versions of NVDA, this add-on is still necessary if you "
+		"choose to, or must, use sound split without WASAPI. The add-on will be maintained for that purpose, "
+		"and for use in older versions of NVDA.\n"
+		"If you only plan to use WASAPI, you may remove the add-on from copies of NVDA 2024.2, "
+		"and configure the built-in feature."
+	)
+	if (  # NVDA less than 2024.2
+		version_year < 2024
+		or (version_year == 2024 and version_major < 2)
+	):
+		preInstallMsg: str = f"{preRelease_featureIncludedMsg_top}\n{featureIncludedMsg_body}"
+	else:  # NVDA 2024.2 and up
+		preInstallMsg: str = f"{featureIncludedMsg_top}\n{featureIncludedMsg_body}"
 	gui.messageBox(
+		preInstallMsg,
 		_(
-			# Translators: a message shown on upgrade/installation, notifying about built in sound split feature.
-			"Notice to users of NVDA alpha and beta versions.\n"
-			"The sound split feature is being integrated into NVDA itself, as of NVDA 2024.2.\n"
-			"However, this is only applicable to those using WASAPI for their sound interface.\n"
-			"While WASAPI is the default in modern versions of NVDA, this add-on is still necessary if you "
-			"wish to use sound split without WASAPI, and will be maintained for that purpose, and "
-			"for use in older versions of NVDA."
-		), _(
 			# Translators: title of a dialog notifying about upcoming WASAPI sound split support.
-			"Notice About Built-in WASAPI Sound Split Support"
+			"Sound Splitter Alert!"
 		), wx.OK | wx.ICON_WARNING
 	)
