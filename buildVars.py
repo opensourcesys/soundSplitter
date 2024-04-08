@@ -25,7 +25,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("Splits sound from NvDA screen reader and other programs to separate channels"),
 	# version
-	"addon_version": "23.5.11",
+	"addon_version": "24.0.0",
 	# Author(s)
 	"addon_author": "Luke Davis <XLTechie@newanswertech.com>, Joseph Lee <joseph.lee22590@gmail.com>",
 	# URL for the add-on documentation support
