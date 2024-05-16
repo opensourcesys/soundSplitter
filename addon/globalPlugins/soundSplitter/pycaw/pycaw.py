@@ -8,11 +8,17 @@ from ctypes.wintypes import (BOOL, DWORD, INT, LONG, LPCWSTR, LPWSTR, UINT,
 from enum import Enum
 
 import comtypes
+from logHandler import log
 import sys
 if sys.version_info.major == 2:
 	import psutilpy2 as psutil
 else:
-	from .. import psutil
+	try:
+		import psutil
+		log.debug("Imported psutil directly.")
+	except ModuleNotFoundError:
+		from .. import psutil
+		log.debug("Imported built-in copy of psutil.")
 from comtypes import COMMETHOD, GUID, IUnknown
 from comtypes.automation import VARTYPE, VT_BOOL, VT_CLSID, VT_LPWSTR, VT_UI4
 from .. future.utils import python_2_unicode_compatible
@@ -590,7 +596,7 @@ class AudioSession(object):
 						try:
 								self._process = psutil.Process(self.ProcessId)
 						except psutil.NoSuchProcess:
-								# for some reason GetProcessId returned an non existing pid
+								# for some reason GetProcessId returned a non existing pid
 								return None
 				return self._process
 
