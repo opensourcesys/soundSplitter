@@ -35,6 +35,34 @@ msgstr ""
 "Тази добавка изисква {supportedReleaseName} ({supportedBuild}) или по-нова "
 "версия."
 
+#. Translators: Part of a message shown before NVDA 2024.2 is released.
+msgid ""
+"The sound split feature will be included in NVDA version 2024.2. It may "
+"already be available in your version, if you use alpha or beta releases of "
+"NVDA 2024.2."
+msgstr ""
+
+#. Translators: Part of a message shown after NVDA 2024.2 is released.
+msgid "The sound split feature is now part of NVDA itself, as of NVDA 2024.2!"
+msgstr ""
+
+#. Translators: The remainder of the message shown on installation.
+msgid ""
+"However, this is only helpful if you use WASAPI as your sound interface "
+"preference. (NVDA menu, Preferences, Settings, Advanced.)\n"
+"While WASAPI is the default in modern versions of NVDA, this add-on is still "
+"necessary if you choose to, or must, use sound split without WASAPI. The add-"
+"on will be maintained for that purpose, and for use in older versions of "
+"NVDA.\n"
+"If you only plan to use WASAPI, you may remove the add-on from copies of "
+"NVDA 2024.2, and configure the built-in feature."
+msgstr ""
+
+#. Translators: title of a dialog notifying about upcoming WASAPI sound split support.
+#, fuzzy
+msgid "Sound Splitter Alert!"
+msgstr "Разделяне на звука (Sound Splitter)"
+
 #. Translators: Title for the settings dialog
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
