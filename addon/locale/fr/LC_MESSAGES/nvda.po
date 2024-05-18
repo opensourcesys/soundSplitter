@@ -26,12 +26,42 @@ msgstr "Version de Windows non pris en charge"
 #. releases earlier than minimum supported release.
 #, python-brace-format
 msgid ""
-"You are using {releaseName} ({build}), a Windows release not supported by this add-on.\n"
+"You are using {releaseName} ({build}), a Windows release not supported by "
+"this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
-"Vous utilisez {releaseName} ({build}), une version de Windows qui   n'est pas pris en charge par "
-"cette extension.\n"
-"Cette extension nécessite {supportedReleaseName} ({supportedBuild}) ou version ultérieure."
+"Vous utilisez {releaseName} ({build}), une version de Windows qui   n'est "
+"pas pris en charge par cette extension.\n"
+"Cette extension nécessite {supportedReleaseName} ({supportedBuild}) ou "
+"version ultérieure."
+
+#. Translators: Part of a message shown before NVDA 2024.2 is released.
+msgid ""
+"The sound split feature will be included in NVDA version 2024.2. It may "
+"already be available in your version, if you use alpha or beta releases of "
+"NVDA 2024.2."
+msgstr ""
+
+#. Translators: Part of a message shown after NVDA 2024.2 is released.
+msgid "The sound split feature is now part of NVDA itself, as of NVDA 2024.2!"
+msgstr ""
+
+#. Translators: The remainder of the message shown on installation.
+msgid ""
+"However, this is only helpful if you use WASAPI as your sound interface "
+"preference. (NVDA menu, Preferences, Settings, Advanced.)\n"
+"While WASAPI is the default in modern versions of NVDA, this add-on is still "
+"necessary if you choose to, or must, use sound split without WASAPI. The add-"
+"on will be maintained for that purpose, and for use in older versions of "
+"NVDA.\n"
+"If you only plan to use WASAPI, you may remove the add-on from copies of "
+"NVDA 2024.2, and configure the built-in feature."
+msgstr ""
+
+#. Translators: title of a dialog notifying about upcoming WASAPI sound split support.
+#, fuzzy
+msgid "Sound Splitter Alert!"
+msgstr "Sound Splitter"
 
 #. Translators: Title for the settings dialog
 #. Add-on summary, usually the user visible name of the addon.
@@ -42,20 +72,25 @@ msgstr "Sound Splitter"
 
 #. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
 msgid ""
-"The Sound Splitter add-on can not currently be used in this version of NVDA while WASAPI is "
-"enabled in NVDA Advanced settings.\n"
+"The Sound Splitter add-on can not currently be used in this version of NVDA "
+"while WASAPI is enabled in NVDA Advanced settings.\n"
 "If you want to use Sound Splitter, first disable WASAPI, then restart NVDA.\n"
-"The author apologizes for this inconvenience, and intends to support WASAPI as soon as possible."
+"The author apologizes for this inconvenience, and intends to support WASAPI "
+"as soon as possible."
 msgstr ""
-"L'extension Sound Splitter ne peut pas être utilisée dans cette version de NVDA pendant que "
-"WASAPI est activé dans les paramètres avancé de NVDA.\n"
-"Si vous voulez utiliser Sound Splitter, désactivez d'abord WASAPI, puis redémarrez NVDA.\n"
-"L'auteur s'excuse pour cet inconvénient et a l'intention de supporter WASAPI dès que possible."
+"L'extension Sound Splitter ne peut pas être utilisée dans cette version de "
+"NVDA pendant que WASAPI est activé dans les paramètres avancé de NVDA.\n"
+"Si vous voulez utiliser Sound Splitter, désactivez d'abord WASAPI, puis "
+"redémarrez NVDA.\n"
+"L'auteur s'excuse pour cet inconvénient et a l'intention de supporter WASAPI "
+"dès que possible."
 
 #. checkbox Enable sound split
 #. Translators: Checkbox for sound split
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
-msgstr "&Séparer le son de NVDA et les sons des applications entre canaux gauche et droit"
+msgstr ""
+"&Séparer le son de NVDA et les sons des applications entre canaux gauche et "
+"droit"
 
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
@@ -64,11 +99,12 @@ msgstr "Intervertir la &gauche et la droite pendant que le son est séparé"
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
 msgid ""
-"Sound Splitter is disabled while WASAPI is being used. Please Turn off WASAPI in NVDA Advanced "
-"settings, restart NVDA and try again."
+"Sound Splitter is disabled while WASAPI is being used. Please Turn off "
+"WASAPI in NVDA Advanced settings, restart NVDA and try again."
 msgstr ""
-"Sound Splitter est désactivé pendant que WASAPI est utilisé. Veuillez désactiver WASAPI dans les "
-"paramètres avancé de NVDA, redémarrer NVDA et réessayer."
+"Sound Splitter est désactivé pendant que WASAPI est utilisé. Veuillez "
+"désactiver WASAPI dans les paramètres avancé de NVDA, redémarrer NVDA et "
+"réessayer."
 
 #. Translators: input help message for toggle sound splitter command.
 msgid "Toggle sound split"
@@ -88,5 +124,8 @@ msgstr "Séparateur de son désactivé"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-msgid "Splits sound from NvDA screen reader and other programs to separate channels"
-msgstr "Séparer le son du lecteur d'écran NVDA et autres programmes dans des canaux séparés"
+msgid ""
+"Splits sound from NvDA screen reader and other programs to separate channels"
+msgstr ""
+"Séparer le son du lecteur d'écran NVDA et autres programmes dans des canaux "
+"séparés"

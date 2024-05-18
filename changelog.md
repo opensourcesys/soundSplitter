@@ -3,8 +3,8 @@
 ### 24.0.0
 
 * Compatibility with NVDA 2024.1.
-* Emits a notice on installation, that WASAPI sound split feature is available in NVDA 2024.2 and its alphas/betas.
 * Fixes a bug with WASAPI state detection in NVDA 2024.1 and later.
+* Emits a dynamic notice on installation, that WASAPI sound split feature is available in NVDA 2024.2. The notice is appropriately different depending on NVDA version.
 
 ### 23.5.8
 
