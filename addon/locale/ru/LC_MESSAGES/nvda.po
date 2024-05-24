@@ -3,24 +3,25 @@
 # This file is distributed under the same license as the soundSplitter package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: soundSplitter 23.5.3\n"
+"Project-Id-Version: soundSplitter 23.5.10\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
-"POT-Creation-Date: 2023-06-16 19:35+0000\n"
-"PO-Revision-Date: 2024-05-18 08:44+0300\n"
-"Last-Translator: Kostadin Kolev <k.kolev1985@gmail.com>\n"
+"POT-Creation-Date: 2024-02-02 19:35+0000\n"
+"PO-Revision-Date: 2024-05-17 23:33+0300\n"
+"Last-Translator: Ruslan Kolodyazhni <rupelodn@gmail.com>\n"
 "Language-Team: \n"
-"Language: bg\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
 msgid "Unsupported Windows release"
-msgstr "Неподдържано издание на Windows"
+msgstr "Неподдерживаемый выпуск Windows"
 
 #. Translators: Dialog text shown when trying to install the add-on on
 #. releases earlier than minimum supported release.
@@ -30,10 +31,10 @@ msgid ""
 "this add-on.\n"
 "This add-on requires {supportedReleaseName} ({supportedBuild}) or later."
 msgstr ""
-"Използвате {releaseName} ({build}), версия на Windows, която не се поддържа "
-"от тази добавка.\n"
-"Тази добавка изисква {supportedReleaseName} ({supportedBuild}) или по-нова "
-"версия."
+"Вы используете {releaseName} ({build}), версию Windows, не поддерживаемую "
+"этим дополнением.\n"
+"Для этого дополнения требуется {supportedReleaseName} ({supportedBuild}) или "
+"позднее."
 
 #. Translators: Part of a message shown before NVDA 2024.2 is released.
 msgid ""
@@ -41,14 +42,15 @@ msgid ""
 "already be available in your version, if you use alpha or beta releases of "
 "NVDA 2024.2."
 msgstr ""
-"Функцията за разделяне на звука ще бъде включена във версия 2024.2 на NVDA. "
-"Възможно е вече да е наличен във вашата версия, ако използвате алфа или бета "
-"версии на NVDA 2024.2."
+"Возможность разделения звука будет включена в NVDA версии 2024.2. Быть "
+"может, она уже доступна в вашей версии, если вы используете альфа- или бета-"
+"версии NVDA 2024.2."
 
 #. Translators: Part of a message shown after NVDA 2024.2 is released.
 msgid "The sound split feature is now part of NVDA itself, as of NVDA 2024.2!"
 msgstr ""
-"Функцията за разделяне на звука вече е включена в NVDA от версия 2024.2!"
+"Функция разделения звука теперь является частью самого NVDA, начиная с "
+"версии NVDA 2024.2!"
 
 #. Translators: The remainder of the message shown on installation.
 msgid ""
@@ -61,25 +63,26 @@ msgid ""
 "If you only plan to use WASAPI, you may remove the add-on from copies of "
 "NVDA 2024.2, and configure the built-in feature."
 msgstr ""
-"Това обаче е полезно само ако използвате WASAPI като предпочитание за звуков "
-"интерфейс. (меню на NVDA -> Настройки -> Опции -> Разширени).\n"
-"Докато WASAPI е по подразбиране в съвременните версии на NVDA, тази добавка "
-"все още е необходима, ако решите или трябва да използвате разделяне на звука "
-"без WASAPI. Добавката ще се поддържа за тази цел и за използване в по-стари "
-"версии на NVDA.\n"
-"Ако планирате да използвате само WASAPI, можете да премахнете добавката от "
-"копия на NVDA 2024.2 и да конфигурирате вградената функция."
+"Однако это полезно только в том случае, если вы используете WASAPI в "
+"качестве предпочтительного звукового интерфейса. (Меню NVDA, Параметры, "
+"Настройки, Дополнительно.)\n"
+"Хотя в современных версиях NVDA по умолчанию используется WASAPI, это "
+"дополнение по-прежнему необходимо, если вы решите или должны использовать "
+"разделение звука без WASAPI. Дополнение будет поддерживаться для этой цели и "
+"для использования в более старых версиях NVDA.\n"
+"Если вы планируете использовать только WASAPI, вы можете удалить это "
+"дополнение из копий NVDA 2024.2 и настроить встроенную функцию."
 
 #. Translators: title of a dialog notifying about upcoming WASAPI sound split support.
 msgid "Sound Splitter Alert!"
-msgstr "Предупреждение за разделянето на звука!"
+msgstr "Предупреждение разделителя звука!"
 
 #. Translators: Title for the settings dialog
 #. Add-on summary, usually the user visible name of the addon.
 #. Translators: Summary for this add-on
 #. to be shown on installation and add-on information found in Add-ons Manager.
 msgid "Sound Splitter"
-msgstr "Разделяне на звука (Sound Splitter)"
+msgstr "Разделитель Звука"
 
 #. Translators: a message shown in the configuration panel, when WASAPI is enabled in NVDA
 msgid ""
@@ -89,51 +92,49 @@ msgid ""
 "The author apologizes for this inconvenience, and intends to support WASAPI "
 "as soon as possible."
 msgstr ""
-"Добавката \"Разделяне на звука\" в момента не може да се използва в тази "
-"версия на NVDA, докато WASAPI е включен в разширените настройки на NVDA.\n"
-"Ако искате да използвате \"Разделяне на звука\", първо изключете WASAPI, "
-"след това рестартирайте NVDA.\n"
-"Авторът се извинява за това неудобство и възнамерява да поддържа WASAPI "
-"възможно най-скоро."
+"Сейчас в этой версии NVDA нельзя использовать дополнение Разделитель Звука, "
+"пока WASAPI включен в расширенных настройках NVDA.\n"
+"Если нужно использовать Sound Splitter, сначала отключите WASAPI, а затем "
+"перезапустите NVDA.\n"
+"Автор приносит извинения за доставленные неудобства и намерен оказать "
+"поддержку WASAPI как можно скорее."
 
 #. checkbox Enable sound split
 #. Translators: Checkbox for sound split
 msgid "&Split NVDA sound and applications' sounds into left and right channels"
-msgstr ""
-"&Разделяй звука от NVDA и звуците от другите приложения на ляв и десен канал"
+msgstr "&Разделение звука NVDA и приложений на левый и правый каналы"
 
 #. checkbox switch left and right during sound split
 #. Translators: Checkbox for switching left and right sound split
 msgid "Switch &left and right during sound split"
-msgstr "Разменяй &левия и десния канал при разделяне на звука"
+msgstr "Переключение влево и вправо во время разделения звука"
 
 #. Translators: Spoken if WASAPI is in use, and the user tries to use the add-on.
 msgid ""
 "Sound Splitter is disabled while WASAPI is being used. Please Turn off "
 "WASAPI in NVDA Advanced settings, restart NVDA and try again."
 msgstr ""
-"\"Разделяне на звука\" е изключено, докато се използва WASAPI. Моля, "
-"изключете WASAPI в разширените настройки на NVDA, рестартирайте NVDA и "
-"опитайте отново."
+"При использовании WASAPI Разделитель Звука отключен. Пожалуйста, отключите "
+"WASAPI в расширенных настройках NVDA, перезапустите NVDA и повторите попытку."
 
 #. Translators: input help message for toggle sound splitter command.
 msgid "Toggle sound split"
-msgstr "Превключва разделянето на звука"
+msgstr "Переключить разделение звука"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the right"
-msgstr "Разделянето на звука е включено, NVDA е в десния канал"
+msgstr "Разделение звука включено, NVDA справа"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split enabled, NVDA on the left"
-msgstr "Разделянето на звука е включено, NVDA е в левия канал"
+msgstr "Разделение звука включено, NVDA слева"
 
 #. Translators: presented when toggling sound splitter.
 msgid "Sound split disabled"
-msgstr "Разделянето на звука е изключено"
+msgstr "Разделение звука отключено"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 msgid ""
 "Splits sound from NvDA screen reader and other programs to separate channels"
-msgstr "Разделя звука от екранния четец NvDA и други програми в отделни канали"
+msgstr "Разделяет звук из NVDA и других программ по отдельным каналам"
