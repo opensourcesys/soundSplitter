@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: soundSplitter 23.5.3\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-06-16 19:35+0000\n"
-"PO-Revision-Date: 2024-05-03 17:16+0300\n"
+"PO-Revision-Date: 2024-05-18 08:44+0300\n"
 "Last-Translator: Kostadin Kolev <k.kolev1985@gmail.com>\n"
 "Language-Team: \n"
 "Language: bg\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #. Translators: title of the error dialog shown when trying to install the add-on in unsupported systems.
 #. Unsupported systems include Windows versions earlier than 10 and unsupported feature updates.
@@ -41,10 +41,14 @@ msgid ""
 "already be available in your version, if you use alpha or beta releases of "
 "NVDA 2024.2."
 msgstr ""
+"Функцията за разделяне на звука ще бъде включена във версия 2024.2 на NVDA. "
+"Възможно е вече да е наличен във вашата версия, ако използвате алфа или бета "
+"версии на NVDA 2024.2."
 
 #. Translators: Part of a message shown after NVDA 2024.2 is released.
 msgid "The sound split feature is now part of NVDA itself, as of NVDA 2024.2!"
 msgstr ""
+"Функцията за разделяне на звука вече е включена в NVDA от версия 2024.2!"
 
 #. Translators: The remainder of the message shown on installation.
 msgid ""
@@ -57,11 +61,18 @@ msgid ""
 "If you only plan to use WASAPI, you may remove the add-on from copies of "
 "NVDA 2024.2, and configure the built-in feature."
 msgstr ""
+"Това обаче е полезно само ако използвате WASAPI като предпочитание за звуков "
+"интерфейс. (меню на NVDA -> Настройки -> Опции -> Разширени).\n"
+"Докато WASAPI е по подразбиране в съвременните версии на NVDA, тази добавка "
+"все още е необходима, ако решите или трябва да използвате разделяне на звука "
+"без WASAPI. Добавката ще се поддържа за тази цел и за използване в по-стари "
+"версии на NVDA.\n"
+"Ако планирате да използвате само WASAPI, можете да премахнете добавката от "
+"копия на NVDA 2024.2 и да конфигурирате вградената функция."
 
 #. Translators: title of a dialog notifying about upcoming WASAPI sound split support.
-#, fuzzy
 msgid "Sound Splitter Alert!"
-msgstr "Разделяне на звука (Sound Splitter)"
+msgstr "Предупреждение за разделянето на звука!"
 
 #. Translators: Title for the settings dialog
 #. Add-on summary, usually the user visible name of the addon.

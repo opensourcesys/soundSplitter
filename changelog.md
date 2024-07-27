@@ -1,5 +1,9 @@
 # Changelog:
 
+### 24.0.2
+
+* Import psutil from NVDA itself, if running NVDA 2024.2.
+
 ### 24.0.0
 
 * Compatibility with NVDA 2024.1.
